@@ -4,1875 +4,933 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>UNION — Catálogo 2026</title>
+<title>Catálogo UNION 2026</title>
 
 <style>
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  background:#050505;
-  font-family:Arial,Helvetica,sans-serif;
-  color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#111;
+    color:#fff;
 }
 
-.catalogo{
-  width:100%;
-  max-width:582px;
-  margin:auto;
-  background:#080808;
-  overflow:hidden;
+.pantalla{
+    min-height:100vh;
+    display:none;
+    padding:20px;
 }
 
+.pantalla.activa{
+    display:block;
+}
 
-/* =========================
-   PORTADA
-========================= */
+/* PORTADA */
 
 .portada{
-  width:100%;
-  height:100vh;
-  min-height:826px;
-  position:relative;
-  overflow:hidden;
+    padding:0;
+    min-height:100vh;
+    background:#000;
 }
 
 .portada img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    display:block;
 }
 
-.portada::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,0,0,.02),
-    rgba(0,0,0,.30)
-  );
-  pointer-events:none;
+.boton-principal{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#fff;
+    color:#111;
+    border:none;
+    padding:16px 30px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+    z-index:20;
+    box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
 
-.boton-portada{
-  position:absolute;
-  z-index:5;
-  bottom:38px;
-  left:50%;
-  transform:translateX(-50%);
+/* MENU */
 
-  padding:15px 32px;
-
-  border:1px solid rgba(255,255,255,.8);
-  border-radius:50px;
-
-  color:white;
-  background:rgba(0,0,0,.45);
-
-  backdrop-filter:blur(12px);
-
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:2px;
-
-  cursor:pointer;
-  transition:.35s;
+.titulo{
+    text-align:center;
+    font-size:28px;
+    margin:20px 0 30px;
+    letter-spacing:2px;
 }
-
-.boton-portada:hover{
-  background:white;
-  color:black;
-}
-
-
-/* =========================
-   MENÚ
-========================= */
 
 .menu{
-  min-height:100vh;
-  padding:55px 22px 70px;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      #3d0505,
-      transparent 35%
-    ),
-    #080808;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    max-width:500px;
+    margin:auto;
 }
 
-.encabezado{
-  margin-bottom:40px;
+.menu button{
+    width:100%;
+    padding:25px 20px;
+    border:none;
+    border-radius:18px;
+    background:#fff;
+    color:#111;
+    font-size:19px;
+    font-weight:bold;
+    letter-spacing:1px;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
 }
 
-.mini-titulo{
-  font-size:11px;
-  letter-spacing:4px;
-  opacity:.55;
-  margin-bottom:12px;
-}
-
-.encabezado h1{
-  font-size:42px;
-  line-height:.95;
-  letter-spacing:-2px;
-}
-
-.encabezado p{
-  margin-top:15px;
-  font-size:13px;
-  color:#aaa;
-}
-
-
-/* =========================
-   CATEGORÍAS
-========================= */
-
-.categorias{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-.categoria{
-  position:relative;
-
-  min-height:105px;
-  padding:25px;
-
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.08),
-      rgba(255,255,255,.025)
-    );
-
-  overflow:hidden;
-  cursor:pointer;
-
-  transition:.35s;
-}
-
-.categoria:hover{
-  transform:translateY(-4px);
-  border-color:rgba(255,255,255,.5);
-}
-
-.categoria span{
-  display:block;
-
-  font-size:10px;
-  letter-spacing:3px;
-
-  opacity:.5;
-
-  margin-bottom:8px;
-}
-
-.categoria h2{
-  font-size:25px;
-  letter-spacing:-1px;
-}
-
-.flecha{
-  position:absolute;
-
-  right:22px;
-  top:50%;
-
-  transform:translateY(-50%);
-
-  width:38px;
-  height:38px;
-
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:18px;
-}
-
-
-/* =========================
-   SECCIONES GENERALES
-========================= */
+/* SECCIONES */
 
 .seccion{
-  display:none;
-
-  min-height:100vh;
-
-  padding:45px 18px 70px;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      #330000,
-      transparent 30%
-    ),
-    #080808;
+    max-width:600px;
+    margin:auto;
 }
 
-.seccion.activa{
-  display:block;
-
-  animation:aparecer .7s ease;
+.encabezado-seccion{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
 }
 
-
-/* =========================
-   TÍTULO SECCIÓN
-========================= */
-
-.titulo-seccion{
-  margin-bottom:30px;
+.encabezado-seccion h2{
+    font-size:25px;
 }
 
-.titulo-seccion .numero{
-  font-size:10px;
-  letter-spacing:4px;
-  color:#888;
+.boton-volver{
+    background:#fff;
+    color:#111;
+    border:none;
+    padding:10px 15px;
+    border-radius:20px;
+    font-weight:bold;
 }
 
-.titulo-seccion h2{
-  margin-top:8px;
+/* VIDEO */
 
-  font-size:48px;
-  line-height:.9;
-
-  letter-spacing:-3px;
+.video-catalogo{
+    width:100%;
+    border-radius:18px;
+    margin-bottom:20px;
+    background:#000;
+    display:block;
 }
 
-.titulo-seccion p{
-  margin-top:15px;
-
-  color:#999;
-
-  font-size:13px;
-}
-
-
-/* =========================
-   VIDEO GENERAL
-========================= */
-
-.video-general{
-  margin-bottom:38px;
-}
-
-.video-etiqueta{
-  font-size:10px;
-  letter-spacing:3px;
-  color:#888;
-
-  margin-bottom:12px;
-}
-
-.video-contenedor{
-  width:100%;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  background:#000;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.45);
-}
-
-.video-contenedor video{
-  width:100%;
-  display:block;
-
-  aspect-ratio:16/9;
-
-  object-fit:cover;
-}
-
-
-/* =========================
-   PUBLICIDAD TIEMPO
-========================= */
+/* PUBLICIDAD */
 
 .publicidad{
-  width:100%;
-  margin-bottom:38px;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  background:#111;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.45);
+    width:100%;
+    display:block;
+    border-radius:18px;
+    margin:0 0 25px;
 }
 
-.publicidad img{
-  width:100%;
-  display:block;
-}
-
-
-/* =========================
-   PRODUCTOS
-========================= */
+/* PRODUCTOS */
 
 .productos{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:12px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
 .producto{
-  position:relative;
-
-  background:#f3f3f3;
-
-  border-radius:18px;
-
-  overflow:hidden;
-
-  cursor:pointer;
-
-  min-height:260px;
-
-  transition:.35s;
-}
-
-.producto:hover{
-  transform:translateY(-5px);
-
-  box-shadow:
-    0 20px 40px rgba(0,0,0,.45);
+    background:#fff;
+    color:#111;
+    border-radius:18px;
+    padding:10px;
+    box-shadow:0 5px 18px rgba(0,0,0,.3);
+    cursor:pointer;
 }
 
 .producto img{
-  width:100%;
-  height:210px;
-
-  object-fit:contain;
-
-  display:block;
-
-  background:white;
-
-  transition:.5s;
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:contain;
+    display:block;
+    border-radius:12px;
 }
 
-.producto:hover img{
-  transform:scale(1.05);
+.nombre-producto{
+    text-align:center;
+    font-weight:bold;
+    font-size:15px;
+    margin-top:8px;
+    padding-bottom:5px;
 }
 
-.producto-info{
-  padding:12px 14px 16px;
+/* MODAL */
 
-  color:#111;
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
 }
 
-.producto-info small{
-  display:block;
-
-  font-size:9px;
-
-  letter-spacing:2px;
-
-  color:#777;
-
-  margin-bottom:5px;
+.modal.activo{
+    display:flex;
 }
 
-.producto-info strong{
-  font-size:17px;
-}
-
-
-/* =========================
-   FICHA PRODUCTO
-========================= */
-
-.ficha{
-  display:none;
-
-  position:fixed;
-
-  z-index:100;
-
-  inset:0;
-
-  background:rgba(0,0,0,.75);
-
-  backdrop-filter:blur(10px);
-
-  align-items:center;
-  justify-content:center;
-
-  padding:18px;
-}
-
-.ficha.activa{
-  display:flex;
-
-  animation:aparecer .3s ease;
-}
-
-.ficha-contenido{
-  width:100%;
-  max-width:540px;
-
-  max-height:92vh;
-
-  overflow-y:auto;
-
-  border-radius:25px;
-
-  background:#f5f5f5;
-
-  color:#111;
-
-  position:relative;
+.modal-contenido{
+    width:100%;
+    max-width:450px;
+    background:#fff;
+    color:#111;
+    border-radius:25px;
+    padding:20px;
+    position:relative;
+    text-align:center;
+    max-height:90vh;
+    overflow:auto;
 }
 
 .cerrar{
-  position:absolute;
-
-  z-index:5;
-
-  top:15px;
-  right:15px;
-
-  width:38px;
-  height:38px;
-
-  border:none;
-
-  border-radius:50%;
-
-  background:rgba(0,0,0,.7);
-
-  color:white;
-
-  font-size:20px;
-
-  cursor:pointer;
+    position:absolute;
+    top:10px;
+    right:15px;
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:#111;
+    color:#fff;
+    font-size:22px;
 }
 
-.ficha-imagen{
-  width:100%;
-
-  background:white;
-
-  padding:20px;
+.modal-contenido img{
+    width:100%;
+    max-height:450px;
+    object-fit:contain;
+    margin-top:20px;
 }
 
-.ficha-imagen img{
-  width:100%;
-
-  display:block;
-
-  object-fit:contain;
+.modal-contenido h2{
+    margin-top:10px;
 }
 
-.ficha-info{
-  padding:25px;
+.modal-contenido p{
+    margin:8px 0 18px;
+    color:#555;
 }
-
-.ficha-info .estilo{
-  font-size:10px;
-
-  letter-spacing:4px;
-
-  color:#888;
-}
-
-.ficha-info h3{
-  margin-top:8px;
-
-  font-size:38px;
-
-  letter-spacing:-2px;
-}
-
-
-/* =========================
-   BOTÓN COLORES
-========================= */
 
 .boton-colores{
-  display:block;
-
-  margin-top:25px;
-
-  width:100%;
-
-  padding:16px;
-
-  border:none;
-
-  border-radius:40px;
-
-  background:#111;
-
-  color:white;
-
-  font-weight:bold;
-
-  letter-spacing:2px;
-
-  text-align:center;
-
-  text-decoration:none;
-
-  cursor:pointer;
-
-  transition:.3s;
+    display:block;
+    width:100%;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:15px;
+    border-radius:12px;
+    font-weight:bold;
 }
 
-.boton-colores:hover{
-  background:#333;
+/* PROXIMAMENTE */
+
+.proximamente{
+    text-align:center;
+    padding:80px 20px;
+    color:#aaa;
 }
 
+@media(max-width:380px){
 
-/* =========================
-   REGRESAR
-========================= */
+    .productos{
+        gap:10px;
+    }
 
-.regresar{
-  margin-top:35px;
+    .producto{
+        padding:7px;
+    }
 
-  width:100%;
-
-  padding:14px;
-
-  border:1px solid rgba(255,255,255,.2);
-
-  border-radius:40px;
-
-  background:transparent;
-
-  color:white;
-
-  font-size:11px;
-
-  letter-spacing:2px;
-
-  cursor:pointer;
-}
-
-
-/* =========================
-   PIE
-========================= */
-
-.pie{
-  margin-top:55px;
-
-  text-align:center;
-}
-
-.pie p{
-  font-size:9px;
-
-  letter-spacing:3px;
-
-  color:#777;
-}
-
-
-/* =========================
-   ANIMACIONES
-========================= */
-
-.aparecer{
-  animation:aparecer 1.2s ease forwards;
-}
-
-@keyframes aparecer{
-
-  from{
-    opacity:0;
-    transform:scale(1.03);
-  }
-
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
-
-}
-
-.entrada{
-  opacity:0;
-
-  transform:translateY(25px);
-
-  animation:
-    entrada .8s ease forwards;
-}
-
-.entrada:nth-child(1){
-  animation-delay:.1s;
-}
-
-.entrada:nth-child(2){
-  animation-delay:.2s;
-}
-
-.entrada:nth-child(3){
-  animation-delay:.3s;
-}
-
-@keyframes entrada{
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-}
-
-
-/* =========================
-   MÓVIL
-========================= */
-
-@media(max-width:600px){
-
-  .portada{
-    min-height:100vh;
-  }
-
-  .productos{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .producto img{
-    height:170px;
-  }
-
-  .titulo-seccion h2{
-    font-size:43px;
-  }
+    .nombre-producto{
+        font-size:13px;
+    }
 
 }
 
 </style>
 </head>
 
-
 <body>
 
-<div class="catalogo">
 
+<!-- PORTADA -->
 
-<!-- =========================
-     PORTADA
-========================= -->
+<section id="portada" class="pantalla portada activa">
 
-<section class="portada aparecer">
+    <img src="portada">
 
-  <img
-    src="portada"
-    alt="UNION Catálogo 2026">
-
-  <button
-    class="boton-portada"
-    onclick="abrirCatalogo()">
-
-    VER CATÁLOGO
-
-  </button>
-
-</section>
-
-
-<!-- =========================
-     MENÚ
-========================= -->
-
-<section
-  class="menu"
-  id="menu">
-
-  <div class="encabezado">
-
-    <div class="mini-titulo">
-      UNION · 2026
-    </div>
-
-    <h1>
-      NUEVA<br>
-      COLECCIÓN
-    </h1>
-
-    <p>
-      Descubre nuestra colección deportiva.
-    </p>
-
-  </div>
-
-
-  <div class="categorias">
-
-
-    <!-- RUNNING -->
-
-    <div
-      class="categoria entrada"
-      onclick="abrirSeccion('running')">
-
-      <span>
-        01 · COLECCIÓN
-      </span>
-
-      <h2>
-        RUNNING
-      </h2>
-
-      <div class="flecha">
-        →
-      </div>
-
-    </div>
-
-
-    <!-- SOCCER & TURF -->
-
-    <div
-      class="categoria entrada"
-      onclick="abrirSeccion('soccer')">
-
-      <span>
-        02 · COLECCIÓN
-      </span>
-
-      <h2>
-        SOCCER & TURF
-      </h2>
-
-      <div class="flecha">
-        →
-      </div>
-
-    </div>
-
-
-    <!-- CASUAL -->
-
-    <div
-      class="categoria entrada"
-      onclick="proximamente()">
-
-      <span>
-        03 · COLECCIÓN
-      </span>
-
-      <h2>
-        CASUAL
-      </h2>
-
-      <div class="flecha">
-        →
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="pie">
-
-    <p>
-      EL DEPORTE NOS UNE
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     RUNNING
-========================= -->
-
-<section
-  class="seccion"
-  id="running">
-
-
-  <div class="titulo-seccion">
-
-    <div class="numero">
-      UNION · 01
-    </div>
-
-    <h2>
-      RUNNING
-    </h2>
-
-    <p>
-      Performance Collection
-    </p>
-
-  </div>
-
-
-  <!-- VIDEO RUNNING -->
-
-  <div class="video-general">
-
-    <div class="video-etiqueta">
-      UNION · RUNNING
-    </div>
-
-    <div class="video-contenedor">
-
-      <video
-        controls
-        playsinline
-        preload="metadata">
-
-        <source
-          src="video-running.mp4"
-          type="video/mp4">
-
-        Tu navegador no puede reproducir este video.
-
-      </video>
-
-    </div>
-
-  </div>
-
-
-  <!-- PRODUCTOS RUNNING -->
-
-  <div class="productos">
-
-
-    <!-- 527 -->
-
-    <div
-      class="producto"
-      onclick="abrirProducto('527')">
-
-      <img
-        src="estilo-527.jpg"
-        alt="UNION 527">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>527</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 538 -->
-
-    <div
-      class="producto"
-      onclick="abrirProducto('538')">
-
-      <img
-        src="estilo-538.jpg"
-        alt="UNION 538">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>538</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 542 -->
-
-    <div
-      class="producto"
-      onclick="abrirProducto('542')">
-
-      <img
-        src="estilo-542.png"
-        alt="UNION 542">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>542</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 544 -->
-
-    <div
-      class="producto"
-      onclick="abrirProducto('544')">
-
-      <img
-        src="estilo-544.jpg"
-        alt="UNION 544">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>544</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 545 -->
-
-    <div
-      class="producto"
-      onclick="abrirProducto('545')">
-
-      <img
-        src="estilo-545.png"
-        alt="UNION 545">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>545</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 545 DAMA -->
-
-    <div
-      class="producto"
-      onclick="abrirProducto('545-dama')">
-
-      <img
-        src="estilo-545-dama.jpg"
-        alt="UNION 545 Dama">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>545 DAMA</strong>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <button
-    class="regresar"
-    onclick="regresarMenu()">
-
-    ← VOLVER AL MENÚ
-
-  </button>
-
-
-</section>
-
-
-<!-- =========================
-     SOCCER & TURF
-========================= -->
-
-<section
-  class="seccion"
-  id="soccer">
-
-
-  <div class="titulo-seccion">
-
-    <div class="numero">
-      UNION · 02
-    </div>
-
-    <h2>
-      SOCCER<br>& TURF
-    </h2>
-
-    <p>
-      Football Collection
-    </p>
-
-  </div>
-
-
-  <!-- VIDEO SOCCER & TURF -->
-
-  <div class="video-general">
-
-    <div class="video-etiqueta">
-      UNION · SOCCER & TURF
-    </div>
-
-    <div class="video-contenedor">
-
-      <video
-        controls
-        playsinline
-        preload="metadata">
-
-        <source
-          src="video-soccer-turf.mp4"
-          type="video/mp4">
-
-        Tu navegador no puede reproducir este video.
-
-      </video>
-
-    </div>
-
-  </div>
-
-
-  <!-- PUBLICIDAD TIEMPO -->
-
-  <div class="publicidad">
-
-    <img
-      src="publicidad-tiempo.png"
-      alt="Estilo Tiempo — Nuevas combinaciones">
-
-  </div>
-
-
-  <!-- 21 MODELOS -->
-
-  <div class="productos">
-
-
-    <!-- 3115 -->
-
-    <div class="producto" onclick="abrirProducto('3115')">
-
-      <img src="estilo-3115" alt="UNION 3115">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3115</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3114 -->
-
-    <div class="producto" onclick="abrirProducto('3114')">
-
-      <img src="estilo-3114" alt="UNION 3114">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3114</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3112 -->
-
-    <div class="producto" onclick="abrirProducto('3112')">
-
-      <img src="estilo-3112" alt="UNION 3112">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3112</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3111 -->
-
-    <div class="producto" onclick="abrirProducto('3111')">
-
-      <img src="estilo-3111" alt="UNION 3111">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3111</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3110 -->
-
-    <div class="producto" onclick="abrirProducto('3110')">
-
-      <img src="estilo-3110" alt="UNION 3110">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3110</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3109 -->
-
-    <div class="producto" onclick="abrirProducto('3109')">
-
-      <img src="estilo-3109" alt="UNION 3109">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3109</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3108 -->
-
-    <div class="producto" onclick="abrirProducto('3108')">
-
-      <img src="estilo-3108" alt="UNION 3108">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3108</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3107 -->
-
-    <div class="producto" onclick="abrirProducto('3107')">
-
-      <img src="estilo-3107" alt="UNION 3107">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3107</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- GOLDEN -->
-
-    <div class="producto" onclick="abrirProducto('golden')">
-
-      <img src="estilo-golden" alt="UNION GOLDEN">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>GOLDEN</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3106 -->
-
-    <div class="producto" onclick="abrirProducto('3106')">
-
-      <img src="estilo-3106" alt="UNION 3106">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3106</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3105 -->
-
-    <div class="producto" onclick="abrirProducto('3105')">
-
-      <img src="estilo-3105" alt="UNION 3105">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3105</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3104 -->
-
-    <div class="producto" onclick="abrirProducto('3104')">
-
-      <img src="estilo-3104" alt="UNION 3104">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3104</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3102 -->
-
-    <div class="producto" onclick="abrirProducto('3102')">
-
-      <img src="estilo-3102" alt="UNION 3102">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3102</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3099 -->
-
-    <div class="producto" onclick="abrirProducto('3099')">
-
-      <img src="estilo-3099" alt="UNION 3099">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3099</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 90 -->
-
-    <div class="producto" onclick="abrirProducto('90')">
-
-      <img src="estilo-90" alt="UNION 90">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>90</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3096 -->
-
-    <div class="producto" onclick="abrirProducto('3096')">
-
-      <img src="estilo-3096" alt="UNION 3096">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3096</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3090 -->
-
-    <div class="producto" onclick="abrirProducto('3090')">
-
-      <img src="estilo-3090" alt="UNION 3090">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3090</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 3070 -->
-
-    <div class="producto" onclick="abrirProducto('3070')">
-
-      <img src="estilo-3070" alt="UNION 3070">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>3070</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- TIEMPO -->
-
-    <div class="producto" onclick="abrirProducto('tiempo')">
-
-      <img src="estilo-tiempo" alt="UNION TIEMPO">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>TIEMPO</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 2080 -->
-
-    <div class="producto" onclick="abrirProducto('2080')">
-
-      <img src="estilo-2080" alt="UNION 2080">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>2080</strong>
-
-      </div>
-
-    </div>
-
-
-    <!-- 2070 -->
-
-    <div class="producto" onclick="abrirProducto('2070')">
-
-      <img src="estilo-2070" alt="UNION 2070">
-
-      <div class="producto-info">
-
-        <small>ESTILO</small>
-
-        <strong>2070</strong>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <button
-    class="regresar"
-    onclick="regresarMenu()">
-
-    ← VOLVER AL MENÚ
-
-  </button>
-
-
-</section>
-
-</div>
-
-
-<!-- =========================
-     FICHA PRODUCTO
-========================= -->
-
-<div
-  class="ficha"
-  id="ficha">
-
-  <div class="ficha-contenido">
-
-
-    <button
-      class="cerrar"
-      onclick="cerrarProducto()">
-
-      ×
-
+    <button class="boton-principal" onclick="abrirCatalogo()">
+        VER CATÁLOGO
     </button>
 
-
-    <div class="ficha-imagen">
-
-      <img
-        id="imagenProducto"
-        src=""
-        alt="Producto UNION">
-
-    </div>
+</section>
 
 
-    <div class="ficha-info">
+<!-- MENU -->
 
-      <div
-        class="estilo"
-        id="numeroProducto">
+<section id="menu" class="pantalla">
 
-        ESTILO
+    <h1 class="titulo">
+        UNION 2026
+    </h1>
 
-      </div>
+    <div class="menu">
 
+        <button onclick="abrirRunning()">
+            RUNNING
+        </button>
 
-      <h3
-        id="tituloProducto">
+        <button onclick="abrirSoccer()">
+            SOCCER & TURF
+        </button>
 
-        UNION
-
-      </h3>
-
-
-      <a
-        id="botonColores"
-        class="boton-colores"
-        href="#"
-        target="_blank"
-        rel="noopener">
-
-        VER COLORES DISPONIBLES
-
-      </a>
-
+        <button onclick="proximamente()">
+            CASUAL
+        </button>
 
     </div>
 
-  </div>
+</section>
+
+
+<!-- RUNNING -->
+
+<section id="running" class="pantalla">
+
+    <div class="seccion">
+
+        <div class="encabezado-seccion">
+
+            <h2>RUNNING</h2>
+
+            <button class="boton-volver" onclick="regresarMenu()">
+                ← MENÚ
+            </button>
+
+        </div>
+
+
+        <!-- VIDEO GENERAL RUNNING -->
+
+        <video
+            class="video-catalogo"
+            controls
+            playsinline
+            preload="metadata">
+
+            <source src="video-running.mp4" type="video/mp4">
+
+        </video>
+
+
+        <div class="productos">
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-527.jpg','ESTILO 527','https://drive.google.com/file/d/15GEb0hrcMbxjc2uSBHYHhfE4r5uouVdP/view?usp=drivesdk')">
+
+                <img src="estilo-527.jpg">
+
+                <div class="nombre-producto">
+                    EST. 527
+                </div>
+
+            </div>
+
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-538.jpg','ESTILO 538','https://drive.google.com/file/d/1BXyVzii3rZWV3Ru2Q8UXRbB69PmNiOeF/view?usp=drivesdk')">
+
+                <img src="estilo-538.jpg">
+
+                <div class="nombre-producto">
+                    EST. 538
+                </div>
+
+            </div>
+
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-542.png','ESTILO 542','https://drive.google.com/file/d/1-pAryxoHT9SNFuHKdAC0KNEC8tv6R68-/view?usp=drivesdk')">
+
+                <img src="estilo-542.png">
+
+                <div class="nombre-producto">
+                    EST. 542
+                </div>
+
+            </div>
+
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-544.jpg','ESTILO 544','https://drive.google.com/file/d/1SPsVEtDTzaAmCpi8YNgTCxZyUgPkj7Hk/view?usp=drivesdk')">
+
+                <img src="estilo-544.jpg">
+
+                <div class="nombre-producto">
+                    EST. 544
+                </div>
+
+            </div>
+
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-545.png','ESTILO 545','https://drive.google.com/file/d/1OZPk2aHYswtfNEM3CaKgIwBtW3HFD67E/view?usp=drivesdk')">
+
+                <img src="estilo-545.png">
+
+                <div class="nombre-producto">
+                    EST. 545
+                </div>
+
+            </div>
+
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-545-dama.jpg','ESTILO 545 DAMA','https://drive.google.com/file/d/1kG65LTvS32tqBLeWLN4xQmjBy3Uehr6L/view?usp=drivesdk')">
+
+                <img src="estilo-545-dama.jpg">
+
+                <div class="nombre-producto">
+                    EST. 545 DAMA
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOCCER & TURF -->
+
+<section id="soccer" class="pantalla">
+
+    <div class="seccion">
+
+        <div class="encabezado-seccion">
+
+            <h2>SOCCER & TURF</h2>
+
+            <button class="boton-volver" onclick="regresarMenu()">
+                ← MENÚ
+            </button>
+
+        </div>
+
+
+        <!-- VIDEO GENERAL SOCCER & TURF -->
+
+        <video
+            class="video-catalogo"
+            controls
+            playsinline
+            preload="metadata">
+
+            <source src="video-soccer-turf.mp4" type="video/mp4">
+
+        </video>
+
+
+        <!-- PUBLICIDAD ESTILO TIEMPO -->
+
+        <img
+            class="publicidad"
+            src="publicidad-tiempo.png"
+            alt="Nuevas combinaciones Estilo Tiempo">
+
+
+        <!-- PRODUCTOS -->
+
+        <div class="productos">
+
+
+            <!-- 3115 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3115.png','ESTILO 3115','https://drive.google.com/file/d/1ZF_sSJ5hHeWkVWyRbLZMpOEvi7StqsUB/view?usp=drivesdk')">
+
+                <img src="estilo-3115.png">
+
+                <div class="nombre-producto">
+                    EST. 3115
+                </div>
+
+            </div>
+
+
+            <!-- 3114 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3114.png','ESTILO 3114','https://drive.google.com/file/d/10FMeZx81aC74dqhyJJDvvbv4EMeUywki/view?usp=drivesdk')">
+
+                <img src="estilo-3114.png">
+
+                <div class="nombre-producto">
+                    EST. 3114
+                </div>
+
+            </div>
+
+
+            <!-- 3112 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3112.png','ESTILO 3112','https://drive.google.com/file/d/1q_KPm_h7YRh4ogzk9tKZMqZn5DuyZnBv/view?usp=drivesdk')">
+
+                <img src="estilo-3112.png">
+
+                <div class="nombre-producto">
+                    EST. 3112
+                </div>
+
+            </div>
+
+
+            <!-- 3111 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3111.png','ESTILO 3111','https://drive.google.com/file/d/15qhx5U9sElCbbCh5qgC_Np-Nd5blXu32/view?usp=drivesdk')">
+
+                <img src="estilo-3111.png">
+
+                <div class="nombre-producto">
+                    EST. 3111
+                </div>
+
+            </div>
+
+
+            <!-- 3110 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3110.png','ESTILO 3110','https://drive.google.com/file/d/1mzQDJ8MhtNqupFaiLJngA48Va9y2ixch/view?usp=drivesdk')">
+
+                <img src="estilo-3110.png">
+
+                <div class="nombre-producto">
+                    EST. 3110
+                </div>
+
+            </div>
+
+
+            <!-- 3109 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3109.png','ESTILO 3109','https://drive.google.com/file/d/1rJBBaBlncmM3fVGDtZx7mjwwVXLa9nwD/view?usp=drivesdk')">
+
+                <img src="estilo-3109.png">
+
+                <div class="nombre-producto">
+                    EST. 3109
+                </div>
+
+            </div>
+
+
+            <!-- 3108 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3108.png','ESTILO 3108','https://drive.google.com/file/d/1JulVmRd3MjeNHR_qmBpjJ3mtQoJ4OtJ0/view?usp=drivesdk')">
+
+                <img src="estilo-3108.png">
+
+                <div class="nombre-producto">
+                    EST. 3108
+                </div>
+
+            </div>
+
+
+            <!-- 3107 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3107.png','ESTILO 3107','https://drive.google.com/file/d/1rmfj6ELSiizD2kM8df64Ohxi0oleUuG3/view?usp=drivesdk')">
+
+                <img src="estilo-3107.png">
+
+                <div class="nombre-producto">
+                    EST. 3107
+                </div>
+
+            </div>
+
+
+            <!-- GOLDEN -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-golden.png','ESTILO GOLDEN','https://drive.google.com/file/d/1coTIhSMs2Px-Li4NtTGiOuyU8L4NirIP/view?usp=drivesdk')">
+
+                <img src="estilo-golden.png">
+
+                <div class="nombre-producto">
+                    EST. GOLDEN
+                </div>
+
+            </div>
+
+
+            <!-- 3106 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3106.png','ESTILO 3106','https://drive.google.com/file/d/1p6RcPs2BGT1DW28TkzpQRrXjC1naTjKe/view?usp=drivesdk')">
+
+                <img src="estilo-3106.png">
+
+                <div class="nombre-producto">
+                    EST. 3106
+                </div>
+
+            </div>
+
+
+            <!-- 3105 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3105.png','ESTILO 3105','https://drive.google.com/file/d/1kP2cttX7KVXMQf-pRUQSOkcj54AYy-xv/view?usp=drivesdk')">
+
+                <img src="estilo-3105.png">
+
+                <div class="nombre-producto">
+                    EST. 3105
+                </div>
+
+            </div>
+
+
+            <!-- 3104 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3104.png','ESTILO 3104','https://drive.google.com/file/d/1AwvhX538IKl9LrZLuZmglu6aGUN58bEH/view?usp=drivesdk')">
+
+                <img src="estilo-3104.png">
+
+                <div class="nombre-producto">
+                    EST. 3104
+                </div>
+
+            </div>
+
+
+            <!-- 3102 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3102.png','ESTILO 3102','https://drive.google.com/file/d/1pOfjaWL5o70l5JTVus2CLPJtvghg72Q9/view?usp=drivesdk')">
+
+                <img src="estilo-3102.png">
+
+                <div class="nombre-producto">
+                    EST. 3102
+                </div>
+
+            </div>
+
+
+            <!-- 3099 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3099.png','ESTILO 3099','https://drive.google.com/file/d/1op0AkEWgEnnMxhhFcmMEKjUgCuv9V0TO/view?usp=drivesdk')">
+
+                <img src="estilo-3099.png">
+
+                <div class="nombre-producto">
+                    EST. 3099
+                </div>
+
+            </div>
+
+
+            <!-- 90 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-90.png','ESTILO 90','https://drive.google.com/file/d/1DAmuRhKZgCKmqlVDayv_2MW_FzpzgmCA/view?usp=drivesdk')">
+
+                <img src="estilo-90.png">
+
+                <div class="nombre-producto">
+                    EST. 90
+                </div>
+
+            </div>
+
+
+            <!-- 3096 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3096.png','ESTILO 3096','https://drive.google.com/file/d/1cL94SolLLXpDjc4bByX2m24ifE7gN5s8/view?usp=drivesdk')">
+
+                <img src="estilo-3096.png">
+
+                <div class="nombre-producto">
+                    EST. 3096
+                </div>
+
+            </div>
+
+
+            <!-- 3090 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3090.png','ESTILO 3090','https://drive.google.com/file/d/1HN6CZZy_Un7d2DImzfYhGqxvybCvso52/view?usp=drivesdk')">
+
+                <img src="estilo-3090.png">
+
+                <div class="nombre-producto">
+                    EST. 3090
+                </div>
+
+            </div>
+
+
+            <!-- 3070 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-3070.png','ESTILO 3070','https://drive.google.com/file/d/1cmen5xWHXmEzqmfFuhXcq_-HWSNSzCsr/view?usp=drivesdk')">
+
+                <img src="estilo-3070.png">
+
+                <div class="nombre-producto">
+                    EST. 3070
+                </div>
+
+            </div>
+
+
+            <!-- TIEMPO -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-tiempo.png','ESTILO TIEMPO','https://drive.google.com/file/d/1SxPAbv47F2Ol7TFzAlbJ3sTJwm62jKcY/view?usp=drivesdk')">
+
+                <img src="estilo-tiempo.png">
+
+                <div class="nombre-producto">
+                    EST. TIEMPO
+                </div>
+
+            </div>
+
+
+            <!-- 2080 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-2080.png','ESTILO 2080','https://drive.google.com/file/d/15GhJnz0_YFJsnBwn3A2ANhGe2FgfOkmn/view?usp=drivesdk')">
+
+                <img src="estilo-2080.png">
+
+                <div class="nombre-producto">
+                    EST. 2080
+                </div>
+
+            </div>
+
+
+            <!-- 2070 -->
+
+            <div class="producto"
+                 onclick="abrirProducto('estilo-2070.png','ESTILO 2070','https://drive.google.com/file/d/1uUAUtdTdStvTuY8QM8qsO35T6CQVgLYS/view?usp=drivesdk')">
+
+                <img src="estilo-2070.png">
+
+                <div class="nombre-producto">
+                    EST. 2070
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CASUAL -->
+
+<section id="casual" class="pantalla">
+
+    <div class="seccion">
+
+        <div class="encabezado-seccion">
+
+            <h2>CASUAL</h2>
+
+            <button class="boton-volver" onclick="regresarMenu()">
+                ← MENÚ
+            </button>
+
+        </div>
+
+        <div class="proximamente">
+
+            <h2>PRÓXIMAMENTE</h2>
+
+            <p>Estamos preparando esta colección.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MODAL PRODUCTO -->
+
+<div id="modalProducto" class="modal">
+
+    <div class="modal-contenido">
+
+        <button class="cerrar" onclick="cerrarProducto()">
+            ×
+        </button>
+
+        <img id="imagenProducto" src="">
+
+        <h2 id="numeroProducto"></h2>
+
+        <p>
+            Consulta las combinaciones de color disponibles.
+        </p>
+
+        <a
+            id="botonColores"
+            class="boton-colores"
+            href="#"
+            target="_blank"
+            rel="noopener">
+
+            VER COLORES DISPONIBLES
+
+        </a>
+
+    </div>
 
 </div>
 
 
 <script>
 
+function ocultarTodo(){
 
-/* =========================
-   PORTADA
-========================= */
+    document.querySelectorAll(".pantalla")
+        .forEach(function(pantalla){
+
+            pantalla.classList.remove("activa");
+
+        });
+
+}
+
 
 function abrirCatalogo(){
 
-  document
-    .getElementById("menu")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+    ocultarTodo();
+
+    document.getElementById("menu")
+        .classList.add("activa");
 
 }
 
 
-/* =========================
-   ABRIR SECCIÓN
-========================= */
+function abrirRunning(){
 
-function abrirSeccion(id){
+    ocultarTodo();
 
-  const seccion =
-    document.getElementById(id);
-
-  seccion.classList.add("activa");
-
-  setTimeout(function(){
-
-    seccion.scrollIntoView({
-      behavior:"smooth"
-    });
-
-  },100);
+    document.getElementById("running")
+        .classList.add("activa");
 
 }
 
 
-/* =========================
-   EXTENSIONES
-========================= */
+function abrirSoccer(){
 
-const extensiones = {
+    ocultarTodo();
 
-  "527":"jpg",
-  "538":"jpg",
-  "542":"png",
-  "544":"jpg",
-  "545":"png",
-  "545-dama":"jpg",
-
-  "3115":"jpg",
-  "3114":"jpg",
-  "3112":"jpg",
-  "3111":"jpg",
-  "3110":"jpg",
-  "3109":"jpg",
-  "3108":"jpg",
-  "3107":"jpg",
-  "golden":"jpg",
-  "3106":"jpg",
-  "3105":"jpg",
-  "3104":"jpg",
-  "3102":"jpg",
-  "3099":"jpg",
-  "90":"jpg",
-  "3096":"jpg",
-  "3090":"jpg",
-  "3070":"jpg",
-  "tiempo":"jpg",
-  "2080":"jpg",
-  "2070":"jpg"
-
-};
-
-
-/* =========================
-   NOMBRES
-========================= */
-
-const nombres = {
-
-  "527":"UNION 527",
-  "538":"UNION 538",
-  "542":"UNION 542",
-  "544":"UNION 544",
-  "545":"UNION 545",
-  "545-dama":"545 DAMA",
-
-  "3115":"UNION 3115",
-  "3114":"UNION 3114",
-  "3112":"UNION 3112",
-  "3111":"UNION 3111",
-  "3110":"UNION 3110",
-  "3109":"UNION 3109",
-  "3108":"UNION 3108",
-  "3107":"UNION 3107",
-  "golden":"GOLDEN",
-  "3106":"UNION 3106",
-  "3105":"UNION 3105",
-  "3104":"UNION 3104",
-  "3102":"UNION 3102",
-  "3099":"UNION 3099",
-  "90":"UNION 90",
-  "3096":"UNION 3096",
-  "3090":"UNION 3090",
-  "3070":"UNION 3070",
-  "tiempo":"TIEMPO",
-  "2080":"UNION 2080",
-  "2070":"UNION 2070"
-
-};
-
-
-/* =========================
-   PDFs DE DRIVE
-========================= */
-
-const pdfs = {
-
-  "527":
-  "https://drive.google.com/file/d/15GEb0hrcMbxjc2uSBHYHhfE4r5uouVdP/view?usp=drivesdk",
-
-  "538":
-  "https://drive.google.com/file/d/1BXyVzii3rZWV3Ru2Q8UXRbB69PmNiOeF/view?usp=drivesdk",
-
-  "542":
-  "https://drive.google.com/file/d/1-pAryxoHT9SNFuHKdAC0KNEC8tv6R68-/view?usp=drivesdk",
-
-  "544":
-  "https://drive.google.com/file/d/1SPsVEtDTzaAmCpi8YNgTCxZyUgPkj7Hk/view?usp=drivesdk",
-
-  "545":
-  "https://drive.google.com/file/d/1OZPk2aHYswtfNEM3CaKgIwBtW3HFD67E/view?usp=drivesdk",
-
-  "545-dama":
-  "https://drive.google.com/file/d/1kG65LTvS32tqBLeWLN4xQmjBy3Uehr6L/view?usp=drivesdk",
-
-
-  "3115":
-  "https://drive.google.com/file/d/1ZF_sSJ5hHeWkVWyRbLZMpOEvi7StqsUB/view?usp=drivesdk",
-
-  "3114":
-  "https://drive.google.com/file/d/10FMeZx81aC74dqhyJJDvvbv4EMeUywki/view?usp=drivesdk",
-
-  "3112":
-  "https://drive.google.com/file/d/1q_KPm_h7YRh4ogzk9tKZMqZn5DuyZnBv/view?usp=drivesdk",
-
-  "3111":
-  "https://drive.google.com/file/d/15qhx5U9sElCbbCh5qgC_Np-Nd5blXu32/view?usp=drivesdk",
-
-  "3110":
-  "https://drive.google.com/file/d/1mzQDJ8MhtNqupFaiLJngA48Va9y2ixch/view?usp=drivesdk",
-
-  "3109":
-  "https://drive.google.com/file/d/1rJBBaBlncmM3fVGDtZx7mjwwVXLa9nwD/view?usp=drivesdk",
-
-  "3108":
-  "https://drive.google.com/file/d/1JulVmRd3MjeNHR_qmBpjJ3mtQoJ4OtJ0/view?usp=drivesdk",
-
-  "3107":
-  "https://drive.google.com/file/d/1rmfj6ELSiizD2kM8df64Ohxi0oleUuG3/view?usp=drivesdk",
-
-  "golden":
-  "https://drive.google.com/file/d/1coTIhSMs2Px-Li4NtTGiOuyU8L4NirIP/view?usp=drivesdk",
-
-  "3106":
-  "https://drive.google.com/file/d/1p6RcPs2BGT1DW28TkzpQRrXjC1naTjKe/view?usp=drivesdk",
-
-  "3105":
-  "https://drive.google.com/file/d/1kP2cttX7KVXMQf-pRUQSOkcj54AYy-xv/view?usp=drivesdk",
-
-  "3104":
-  "https://drive.google.com/file/d/1AwvhX538IKl9LrZLuZmglu6aGUN58bEH/view?usp=drivesdk",
-
-  "3102":
-  "https://drive.google.com/file/d/1pOfjaWL5o70l5JTVus2CLPJtvghg72Q9/view?usp=drivesdk",
-
-  "3099":
-  "https://drive.google.com/file/d/1op0AkEWgEnnMxhhFcmMEKjUgCuv9V0TO/view?usp=drivesdk",
-
-  "90":
-  "https://drive.google.com/file/d/1DAmuRhKZgCKmqlVDayv_2MW_FzpzgmCA/view?usp=drivesdk",
-
-  "3096":
-  "https://drive.google.com/file/d/1cL94SolLLXpDjc4bByX2m24ifE7gN5s8/view?usp=drivesdk",
-
-  "3090":
-  "https://drive.google.com/file/d/1HN6CZZy_Un7d2DImzfYhGqxvybCvso52/view?usp=drivesdk",
-
-  "3070":
-  "https://drive.google.com/file/d/1cmen5xWHXmEzqmfFuhXcq_-HWSNSzCsr/view?usp=drivesdk",
-
-  "tiempo":
-  "https://drive.google.com/file/d/1SxPAbv47F2Ol7TFzAlbJ3sTJwm62jKcY/view?usp=drivesdk",
-
-  "2080":
-  "https://drive.google.com/file/d/15GhJnz0_YFJsnBwn3A2ANhGe2FgfOkmn/view?usp=drivesdk",
-
-  "2070":
-  "https://drive.google.com/file/d/1uUAUtdTdStvTuY8QM8qsO35T6CQVgLYS/view?usp=drivesdk"
-
-};
-
-
-/* =========================
-   ABRIR PRODUCTO
-========================= */
-
-function abrirProducto(estilo){
-
-  const imagen =
-    document.getElementById(
-      "imagenProducto"
-    );
-
-  const numero =
-    document.getElementById(
-      "numeroProducto"
-    );
-
-  const titulo =
-    document.getElementById(
-      "tituloProducto"
-    );
-
-  const boton =
-    document.getElementById(
-      "botonColores"
-    );
-
-
-  imagen.src =
-    "estilo-" +
-    estilo +
-    "." +
-    extensiones[estilo];
-
-
-  if(estilo === "545-dama"){
-
-    numero.textContent =
-      "ESTILO 545 · DAMA";
-
-    titulo.textContent =
-      "545 DAMA";
-
-  }else{
-
-    numero.textContent =
-      "ESTILO " + estilo;
-
-    titulo.textContent =
-      nombres[estilo];
-
-  }
-
-
-  boton.href =
-    pdfs[estilo];
-
-
-  document
-    .getElementById("ficha")
-    .classList.add("activa");
+    document.getElementById("soccer")
+        .classList.add("activa");
 
 }
 
-
-/* =========================
-   CERRAR PRODUCTO
-========================= */
-
-function cerrarProducto(){
-
-  document
-    .getElementById("ficha")
-    .classList.remove("activa");
-
-}
-
-
-/* =========================
-   REGRESAR
-========================= */
 
 function regresarMenu(){
 
-  document
-    .getElementById("menu")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+    ocultarTodo();
+
+    document.getElementById("menu")
+        .classList.add("activa");
 
 }
 
-
-/* =========================
-   PRÓXIMAMENTE
-========================= */
 
 function proximamente(){
 
-  alert(
-    "Esta sección la construiremos próximamente ✨"
-  );
+    alert("Esta sección estará disponible próximamente.");
 
 }
 
 
-/* =========================
-   CERRAR AL TOCAR AFUERA
-========================= */
+function abrirProducto(imagen, nombre, link){
 
-document
-  .getElementById("ficha")
-  .addEventListener(
-    "click",
-    function(event){
+    document.getElementById("imagenProducto").src = imagen;
 
-      if(event.target === this){
+    document.getElementById("numeroProducto").textContent = nombre;
 
-        cerrarProducto();
+    document.getElementById("botonColores").href = link;
 
-      }
+    document.getElementById("modalProducto")
+        .classList.add("activo");
 
-    }
-  );
+}
 
 
-/* =========================
-   ESCAPE
-========================= */
+function cerrarProducto(){
 
-document.addEventListener(
-  "keydown",
-  function(event){
+    document.getElementById("modalProducto")
+        .classList.remove("activo");
+
+}
+
+
+document.getElementById("modalProducto")
+    .addEventListener("click", function(event){
+
+        if(event.target === this){
+
+            cerrarProducto();
+
+        }
+
+    });
+
+
+document.addEventListener("keydown", function(event){
 
     if(event.key === "Escape"){
 
-      cerrarProducto();
+        cerrarProducto();
 
     }
 
-  }
-);
+});
 
 </script>
 
