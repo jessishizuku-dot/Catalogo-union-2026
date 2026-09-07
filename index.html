@@ -86,6 +86,7 @@ body{
 .boton-portada:hover{
   background:white;
   color:black;
+  transform:translateX(-50%) translateY(-3px);
 }
 
 
@@ -153,12 +154,32 @@ body{
     );
   overflow:hidden;
   cursor:pointer;
-  transition:.35s;
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.categoria::after{
+  content:"";
+  position:absolute;
+  width:130px;
+  height:130px;
+  right:-55px;
+  top:-65px;
+  border-radius:50%;
+  background:rgba(255,255,255,.04);
+  transition:.4s;
 }
 
 .categoria:hover{
   transform:translateY(-4px);
   border-color:rgba(255,255,255,.5);
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+
+.categoria:hover::after{
+  transform:scale(1.3);
 }
 
 .categoria span{
@@ -167,11 +188,15 @@ body{
   letter-spacing:3px;
   opacity:.5;
   margin-bottom:8px;
+  position:relative;
+  z-index:2;
 }
 
 .categoria h2{
   font-size:25px;
   letter-spacing:-1px;
+  position:relative;
+  z-index:2;
 }
 
 .flecha{
@@ -187,6 +212,14 @@ body{
   align-items:center;
   justify-content:center;
   font-size:18px;
+  z-index:3;
+  transition:.35s;
+}
+
+.categoria:hover .flecha{
+  background:white;
+  color:black;
+  border-color:white;
 }
 
 
@@ -284,6 +317,7 @@ body{
   margin-bottom:38px;
   cursor:pointer;
   transition:.35s;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 .publicidad-tiempo:hover{
@@ -298,23 +332,38 @@ body{
 .productos{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px;
+  gap:14px;
 }
 
 .producto{
   position:relative;
   background:#f3f3f3;
-  border-radius:18px;
+  border-radius:20px;
   overflow:hidden;
   cursor:pointer;
   min-height:260px;
-  transition:.35s;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.22);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.producto::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  border:1px solid rgba(0,0,0,.05);
+  pointer-events:none;
 }
 
 .producto:hover{
-  transform:translateY(-5px);
+  transform:translateY(-6px);
   box-shadow:
-    0 20px 40px rgba(0,0,0,.45);
+    0 22px 45px rgba(0,0,0,.50);
 }
 
 .producto img{
@@ -323,16 +372,18 @@ body{
   object-fit:contain;
   display:block;
   background:white;
-  transition:.5s;
+  transition:
+    transform .5s ease;
 }
 
 .producto:hover img{
-  transform:scale(1.05);
+  transform:scale(1.045);
 }
 
 .producto-info{
-  padding:12px 14px 16px;
+  padding:13px 14px 17px;
   color:#111;
+  background:#f3f3f3;
 }
 
 .producto-info small{
@@ -345,14 +396,15 @@ body{
 
 .producto-info strong{
   font-size:17px;
+  letter-spacing:-.3px;
 }
 
 .linea-disponible{
   display:block;
-  margin-top:7px;
-  font-size:9px;
-  line-height:1.3;
-  letter-spacing:.5px;
+  margin-top:8px;
+  font-size:8.5px;
+  line-height:1.35;
+  letter-spacing:.4px;
   color:#666;
   font-weight:bold;
 }
@@ -367,8 +419,8 @@ body{
   position:fixed;
   z-index:100;
   inset:0;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(12px);
   align-items:center;
   justify-content:center;
   padding:18px;
@@ -388,6 +440,7 @@ body{
   background:#f5f5f5;
   color:#111;
   position:relative;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
 }
 
 .cerrar{
@@ -403,6 +456,12 @@ body{
   color:white;
   font-size:20px;
   cursor:pointer;
+  transition:.3s;
+}
+
+.cerrar:hover{
+  background:#111;
+  transform:rotate(90deg);
 }
 
 .ficha-imagen{
@@ -457,6 +516,7 @@ body{
 
 .boton-colores:hover{
   background:#333;
+  transform:translateY(-2px);
 }
 
 
@@ -475,6 +535,12 @@ body{
   font-size:11px;
   letter-spacing:2px;
   cursor:pointer;
+  transition:.3s;
+}
+
+.regresar:hover{
+  background:white;
+  color:#111;
 }
 
 
@@ -532,6 +598,10 @@ body{
 
 .entrada:nth-child(3){
   animation-delay:.3s;
+}
+
+.entrada:nth-child(4){
+  animation-delay:.4s;
 }
 
 @keyframes entrada{
@@ -673,7 +743,7 @@ body{
 
     <div
       class="categoria entrada"
-      onclick="proximamente()">
+      onclick="abrirCasual()">
 
       <span>
         03 · COLECCIÓN
@@ -681,6 +751,27 @@ body{
 
       <h2>
         CASUAL
+      </h2>
+
+      <div class="flecha">
+        →
+      </div>
+
+    </div>
+
+
+    <!-- KIDS -->
+
+    <div
+      class="categoria entrada"
+      onclick="abrirKids()">
+
+      <span>
+        04 · COLECCIÓN
+      </span>
+
+      <h2>
+        KIDS
       </h2>
 
       <div class="flecha">
@@ -772,7 +863,6 @@ body{
       <div class="producto-info">
 
         <small>ESTILO</small>
-
         <strong>527</strong>
 
         <span class="linea-disponible">
@@ -797,7 +887,6 @@ body{
       <div class="producto-info">
 
         <small>ESTILO</small>
-
         <strong>538</strong>
 
         <span class="linea-disponible">
@@ -822,7 +911,6 @@ body{
       <div class="producto-info">
 
         <small>ESTILO</small>
-
         <strong>542</strong>
 
         <span class="linea-disponible">
@@ -847,7 +935,6 @@ body{
       <div class="producto-info">
 
         <small>ESTILO</small>
-
         <strong>544</strong>
 
         <span class="linea-disponible">
@@ -872,7 +959,6 @@ body{
       <div class="producto-info">
 
         <small>ESTILO</small>
-
         <strong>545</strong>
 
         <span class="linea-disponible">
@@ -897,7 +983,6 @@ body{
       <div class="producto-info">
 
         <small>ESTILO</small>
-
         <strong>545 DAMA</strong>
 
         <span class="linea-disponible">
@@ -919,7 +1004,6 @@ body{
     ← VOLVER AL MENÚ
 
   </button>
-
 
 </section>
 
@@ -951,8 +1035,6 @@ body{
   </div>
 
 
-  <!-- VIDEO GENERAL -->
-
   <div class="video-general">
 
     <div class="video-etiqueta">
@@ -979,10 +1061,6 @@ body{
   </div>
 
 
-  <!-- PUBLICIDAD TIEMPO
-       TODA LA IMAGEN ES CLICKEABLE
-  -->
-
   <img
     class="publicidad-tiempo"
     src="publicidad-tiempo.png"
@@ -990,521 +1068,358 @@ body{
     onclick="abrirProducto('tiempo')">
 
 
-  <!-- PRODUCTOS -->
-
   <div class="productos">
 
 
     <!-- 3115 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3115')">
-
-      <img
-        src="estilo-3115.png"
-        alt="UNION 3115">
-
+    <div class="producto" onclick="abrirProducto('3115')">
+      <img src="estilo-3115.png" alt="UNION 3115">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3115</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3114 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3114')">
-
-      <img
-        src="estilo-3114.png"
-        alt="UNION 3114">
-
+    <div class="producto" onclick="abrirProducto('3114')">
+      <img src="estilo-3114.png" alt="UNION 3114">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3114</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 22 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3112 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3112')">
-
-      <img
-        src="estilo-3112.png"
-        alt="UNION 3112">
-
+    <div class="producto" onclick="abrirProducto('3112')">
+      <img src="estilo-3112.png" alt="UNION 3112">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3112</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 22 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3111 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3111')">
-
-      <img
-        src="estilo-3111.png"
-        alt="UNION 3111">
-
+    <div class="producto" onclick="abrirProducto('3111')">
+      <img src="estilo-3111.png" alt="UNION 3111">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3111</strong>
-
       </div>
-
     </div>
 
 
     <!-- 3110 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3110')">
-
-      <img
-        src="estilo-3110.png"
-        alt="UNION 3110">
-
+    <div class="producto" onclick="abrirProducto('3110')">
+      <img src="estilo-3110.png" alt="UNION 3110">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3110</strong>
-
       </div>
-
     </div>
 
 
     <!-- 3109 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3109')">
-
-      <img
-        src="estilo-3109.png"
-        alt="UNION 3109">
-
+    <div class="producto" onclick="abrirProducto('3109')">
+      <img src="estilo-3109.png" alt="UNION 3109">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3109</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 22 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3108 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3108')">
-
-      <img
-        src="estilo-3108.png"
-        alt="UNION 3108">
-
+    <div class="producto" onclick="abrirProducto('3108')">
+      <img src="estilo-3108.png" alt="UNION 3108">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3108</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3107 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3107')">
-
-      <img
-        src="estilo-3107.png"
-        alt="UNION 3107">
-
+    <div class="producto" onclick="abrirProducto('3107')">
+      <img src="estilo-3107.png" alt="UNION 3107">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3107</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- GOLDEN -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('golden')">
-
-      <img
-        src="estilo-golden.png"
-        alt="UNION GOLDEN">
-
+    <div class="producto" onclick="abrirProducto('golden')">
+      <img src="estilo-golden.png" alt="UNION GOLDEN">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>GOLDEN</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 22 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3106 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3106')">
-
-      <img
-        src="estilo-3106.png"
-        alt="UNION 3106">
-
+    <div class="producto" onclick="abrirProducto('3106')">
+      <img src="estilo-3106.png" alt="UNION 3106">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3106</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3105 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3105')">
-
-      <img
-        src="estilo-3105.png"
-        alt="UNION 3105">
-
+    <div class="producto" onclick="abrirProducto('3105')">
+      <img src="estilo-3105.png" alt="UNION 3105">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3105</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3104 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3104')">
-
-      <img
-        src="estilo-3104.png"
-        alt="UNION 3104">
-
+    <div class="producto" onclick="abrirProducto('3104')">
+      <img src="estilo-3104.png" alt="UNION 3104">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3104</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3102 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3102')">
-
-      <img
-        src="estilo-3102.png"
-        alt="UNION 3102">
-
+    <div class="producto" onclick="abrirProducto('3102')">
+      <img src="estilo-3102.png" alt="UNION 3102">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3102</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3099 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3099')">
-
-      <img
-        src="estilo-3099.png"
-        alt="UNION 3099">
-
+    <div class="producto" onclick="abrirProducto('3099')">
+      <img src="estilo-3099.png" alt="UNION 3099">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3099</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 90 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('90')">
-
-      <img
-        src="estilo-90.png"
-        alt="UNION 90">
-
+    <div class="producto" onclick="abrirProducto('90')">
+      <img src="estilo-90.png" alt="UNION 90">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>90</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3096 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3096')">
-
-      <img
-        src="estilo-3096.png"
-        alt="UNION 3096">
-
+    <div class="producto" onclick="abrirProducto('3096')">
+      <img src="estilo-3096.png" alt="UNION 3096">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3096</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3090 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3090')">
-
-      <img
-        src="estilo-3090.png"
-        alt="UNION 3090">
-
+    <div class="producto" onclick="abrirProducto('3090')">
+      <img src="estilo-3090.png" alt="UNION 3090">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3090</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 3070 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('3070')">
-
-      <img
-        src="estilo-3070.png"
-        alt="UNION 3070">
-
+    <div class="producto" onclick="abrirProducto('3070')">
+      <img src="estilo-3070.png" alt="UNION 3070">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>3070</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 22 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- TIEMPO -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('tiempo')">
-
-      <img
-        src="estilo-tiempo.png"
-        alt="UNION TIEMPO">
-
+    <div class="producto" onclick="abrirProducto('tiempo')">
+      <img src="estilo-tiempo.png" alt="UNION TIEMPO">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>TIEMPO</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 2080 -->
 
-    <div
-      class="producto"
-      onclick="abrirProducto('2080')">
-
-      <img
-        src="estilo-2080.png"
-        alt="UNION 2080">
-
+    <div class="producto" onclick="abrirProducto('2080')">
+      <img src="estilo-2080.png" alt="UNION 2080">
       <div class="producto-info">
-
         <small>ESTILO</small>
-
         <strong>2080</strong>
-
         <span class="linea-disponible">
           LÍNEA DISPONIBLE: 18 HASTA EL 29
         </span>
-
       </div>
-
     </div>
 
 
     <!-- 2070 -->
 
+    <div class="producto" onclick="abrirProducto('2070')">
+      <img src="estilo-2070.png" alt="UNION 2070">
+      <div class="producto-info">
+        <small>ESTILO</small>
+        <strong>2070</strong>
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 18 HASTA EL 29
+        </span>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <button
+    class="regresar"
+    onclick="regresarMenu()">
+
+    ← VOLVER AL MENÚ
+
+  </button>
+
+</section>
+
+
+<!-- =========================
+     CASUAL
+========================= -->
+
+<section
+  class="seccion-running"
+  id="casual">
+
+
+  <div class="titulo-seccion">
+
+    <div class="numero">
+      UNION · 03
+    </div>
+
+    <h2>
+      CASUAL
+    </h2>
+
+    <p>
+      Everyday Collection
+    </p>
+
+  </div>
+
+
+  <div class="productos">
+
+
+    <!-- 535 CASUAL -->
+
     <div
       class="producto"
-      onclick="abrirProducto('2070')">
+      onclick="abrirProducto('535-casual')">
 
       <img
-        src="estilo-2070.png"
-        alt="UNION 2070">
+        src="535-casual.jpg"
+        alt="UNION 535 Casual">
 
       <div class="producto-info">
 
         <small>ESTILO</small>
 
-        <strong>2070</strong>
+        <strong>535</strong>
 
         <span class="linea-disponible">
-          LÍNEA DISPONIBLE: 18 HASTA EL 29
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
         </span>
 
       </div>
@@ -1523,6 +1438,98 @@ body{
 
   </button>
 
+</section>
+
+
+<!-- =========================
+     KIDS
+========================= -->
+
+<section
+  class="seccion-running"
+  id="kids">
+
+
+  <div class="titulo-seccion">
+
+    <div class="numero">
+      UNION · 04
+    </div>
+
+    <h2>
+      KIDS
+    </h2>
+
+    <p>
+      Junior Collection
+    </p>
+
+  </div>
+
+
+  <div class="productos">
+
+
+    <!-- 535 KIDS -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('535-kids')">
+
+      <img
+        src="535-kids.jpg"
+        alt="UNION 535 Kids">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>535</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 18 HASTA EL 21
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- 538 KIDS -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('538-kids')">
+
+      <img
+        src="538-kids.jpg"
+        alt="UNION 538 Kids">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>538</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 18 HASTA EL 21
+        </span>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    class="regresar"
+    onclick="regresarMenu()">
+
+    ← VOLVER AL MENÚ
+
+  </button>
 
 </section>
 
@@ -1661,6 +1668,50 @@ function abrirSoccer(){
 
 
 /* =========================
+   CASUAL
+========================= */
+
+function abrirCasual(){
+
+  const casual =
+    document.getElementById("casual");
+
+  casual.classList.add("activa");
+
+  setTimeout(function(){
+
+    casual.scrollIntoView({
+      behavior:"smooth"
+    });
+
+  },100);
+
+}
+
+
+/* =========================
+   KIDS
+========================= */
+
+function abrirKids(){
+
+  const kids =
+    document.getElementById("kids");
+
+  kids.classList.add("activa");
+
+  setTimeout(function(){
+
+    kids.scrollIntoView({
+      behavior:"smooth"
+    });
+
+  },100);
+
+}
+
+
+/* =========================
    EXTENSIONES
 ========================= */
 
@@ -1693,7 +1744,11 @@ const extensiones = {
   "3070":"png",
   "tiempo":"png",
   "2080":"png",
-  "2070":"png"
+  "2070":"png",
+
+  "535-casual":"jpg",
+  "535-kids":"jpg",
+  "538-kids":"jpg"
 
 };
 
@@ -1731,7 +1786,11 @@ const nombres = {
   "3070":"UNION 3070",
   "tiempo":"UNION TIEMPO",
   "2080":"UNION 2080",
-  "2070":"UNION 2070"
+  "2070":"UNION 2070",
+
+  "535-casual":"UNION 535",
+  "535-kids":"UNION 535 KIDS",
+  "538-kids":"UNION 538 KIDS"
 
 };
 
@@ -1822,7 +1881,21 @@ const pdfs = {
   "https://drive.google.com/file/d/15GhJnz0_YFJsnBwn3A2ANhGe2FgfOkmn/view?usp=drivesdk",
 
   "2070":
-  "https://drive.google.com/file/d/1uUAUtdTdStvTuY8QM8qsO35T6CQVgLYS/view?usp=drivesdk"
+  "https://drive.google.com/file/d/1uUAUtdTdStvTuY8QM8qsO35T6CQVgLYS/view?usp=drivesdk",
+
+
+  /* =========================
+     CASUAL / KIDS
+  ========================= */
+
+  "535-casual":
+  "https://drive.google.com/file/d/13RdfhrqJ5qvI2B7Yu-sZQnX8vnlkPnac/view?usp=drivesdk",
+
+  "535-kids":
+  "https://drive.google.com/file/d/13RdfhrqJ5qvI2B7Yu-sZQnX8vnlkPnac/view?usp=drivesdk",
+
+  "538-kids":
+  "https://drive.google.com/file/d/1BXyVzii3rZWV3Ru2Q8UXRbB69PmNiOeF/view?usp=drivesdk"
 
 };
 
@@ -1854,11 +1927,29 @@ function abrirProducto(estilo){
     );
 
 
-  imagen.src =
-    "estilo-" +
-    estilo +
-    "." +
-    extensiones[estilo];
+  /*
+     CASUAL Y KIDS TIENEN NOMBRES
+     DE IMAGEN DIFERENTES AL RESTO
+  */
+
+  if(
+    estilo === "535-casual" ||
+    estilo === "535-kids" ||
+    estilo === "538-kids"
+  ){
+
+    imagen.src =
+      estilo + "." + extensiones[estilo];
+
+  }else{
+
+    imagen.src =
+      "estilo-" +
+      estilo +
+      "." +
+      extensiones[estilo];
+
+  }
 
 
   if(estilo === "545-dama"){
@@ -1868,6 +1959,30 @@ function abrirProducto(estilo){
 
     titulo.textContent =
       "545 DAMA";
+
+  }else if(estilo === "535-casual"){
+
+    numero.textContent =
+      "ESTILO 535 · CASUAL";
+
+    titulo.textContent =
+      "UNION 535";
+
+  }else if(estilo === "535-kids"){
+
+    numero.textContent =
+      "ESTILO 535 · KIDS";
+
+    titulo.textContent =
+      "UNION 535 KIDS";
+
+  }else if(estilo === "538-kids"){
+
+    numero.textContent =
+      "ESTILO 538 · KIDS";
+
+    titulo.textContent =
+      "UNION 538 KIDS";
 
   }else{
 
@@ -1915,19 +2030,6 @@ function regresarMenu(){
     .scrollIntoView({
       behavior:"smooth"
     });
-
-}
-
-
-/* =========================
-   PRÓXIMAMENTE
-========================= */
-
-function proximamente(){
-
-  alert(
-    "Esta sección la construiremos próximamente ✨"
-  );
 
 }
 
