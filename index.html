@@ -13,36 +13,34 @@
   padding: 0;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
-  background: #050505;
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden;
+  background: #050505;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
-/* CATÁLOGO */
 .catalogo {
   width: 100%;
   max-width: 582px;
-  min-height: 100vh;
+  margin: auto;
   background: #080808;
   overflow: hidden;
 }
 
-/* PORTADA */
+/* =========================
+   PORTADA
+========================= */
+
 .portada {
   width: 100%;
   height: 100vh;
   min-height: 826px;
   position: relative;
   overflow: hidden;
-  background: #050505;
 }
 
 .portada img {
@@ -52,49 +50,178 @@ body {
   display: block;
 }
 
-/* BOTÓN */
-.boton {
+.portada::after {
+  content: "";
   position: absolute;
-  bottom: 35px;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.05),
+    rgba(0,0,0,0.25)
+  );
+  pointer-events: none;
+}
+
+/* =========================
+   BOTÓN PORTADA
+========================= */
+
+.boton-portada {
+  position: absolute;
+  z-index: 5;
+  bottom: 38px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 14px 30px;
-  border: 1px solid rgba(255,255,255,.6);
-  border-radius: 40px;
+  
+  padding: 15px 32px;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 50px;
+  
   color: white;
   background: rgba(0,0,0,.45);
-  backdrop-filter: blur(10px);
-  font-size: 13px;
+  backdrop-filter: blur(12px);
+  
+  font-size: 12px;
+  font-weight: bold;
   letter-spacing: 2px;
+  
   cursor: pointer;
-  transition: .3s;
+  transition: all .35s ease;
 }
 
-.boton:hover {
+.boton-portada:hover {
   background: white;
   color: black;
+  transform: translateX(-50%) scale(1.05);
 }
 
-/* SEGUNDA PÁGINA */
-.pagina {
+/* =========================
+   MENÚ
+========================= */
+
+.menu {
   min-height: 100vh;
-  padding: 60px 25px;
-  background: #f5f5f5;
-  color: #111;
+  padding: 55px 22px 70px;
+  background:
+    radial-gradient(circle at top right, #3d0505, transparent 35%),
+    #080808;
 }
 
-.pagina h1 {
+.encabezado {
+  margin-bottom: 45px;
+}
+
+.mini-titulo {
+  font-size: 11px;
+  letter-spacing: 4px;
+  opacity: .55;
+  margin-bottom: 12px;
+}
+
+.encabezado h1 {
   font-size: 42px;
+  line-height: .95;
   letter-spacing: -2px;
-  margin-bottom: 10px;
 }
 
-.pagina p {
-  color: #666;
-  font-size: 15px;
+.encabezado p {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #aaa;
 }
 
-/* ANIMACIÓN */
+/* =========================
+   CATEGORÍAS
+========================= */
+
+.categorias {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.categoria {
+  position: relative;
+  min-height: 105px;
+  padding: 25px;
+  
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 18px;
+  
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.025)
+  );
+  
+  overflow: hidden;
+  cursor: pointer;
+  
+  transition: transform .35s ease,
+              border-color .35s ease,
+              background .35s ease;
+}
+
+.categoria:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,.5);
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.14),
+    rgba(255,255,255,.04)
+  );
+}
+
+.categoria span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  opacity: .5;
+  margin-bottom: 8px;
+}
+
+.categoria h2 {
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+
+.flecha {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 18px;
+}
+
+/* =========================
+   PIE
+========================= */
+
+.pie {
+  margin-top: 55px;
+  text-align: center;
+}
+
+.pie p {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #777;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
 .aparecer {
   animation: aparecer 1.2s ease forwards;
 }
@@ -102,12 +229,62 @@ body {
 @keyframes aparecer {
   from {
     opacity: 0;
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.entrada {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: entrada .8s ease forwards;
+}
+
+.entrada:nth-child(1) {
+  animation-delay: .1s;
+}
+
+.entrada:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.entrada:nth-child(3) {
+  animation-delay: .3s;
+}
+
+.entrada:nth-child(4) {
+  animation-delay: .4s;
+}
+
+@keyframes entrada {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+  .portada {
+    min-height: 100vh;
+  }
+
+  .menu {
+    padding: 45px 18px 60px;
+  }
+
+  .encabezado h1 {
+    font-size: 38px;
+  }
+
 }
 </style>
 </head>
@@ -119,35 +296,123 @@ body {
   <!-- PORTADA -->
   <section class="portada aparecer">
 
-    <img src="portada" alt="Catálogo UNION 2026">
+    <img src="portada" alt="UNION Catálogo 2026">
 
-    <button class="boton" onclick="irAlCatalogo()">
+    <button
+      class="boton-portada"
+      onclick="abrirCatalogo()">
       VER CATÁLOGO
     </button>
 
   </section>
 
-  <!-- PRIMERA PÁGINA -->
-  <section class="pagina" id="catalogo">
 
-    <p>UNION · 2026</p>
+  <!-- MENÚ PRINCIPAL -->
+  <section class="menu" id="menu">
 
-    <h1>EL DEPORTE<br>NOS UNE.</h1>
+    <div class="encabezado">
 
-    <p>
-      Descubre nuestra nueva colección.
-    </p>
+      <div class="mini-titulo">
+        UNION · 2026
+      </div>
+
+      <h1>
+        NUEVA<br>
+        COLECCIÓN
+      </h1>
+
+      <p>
+        Descubre nuestra colección deportiva.
+      </p>
+
+    </div>
+
+
+    <div class="categorias">
+
+      <div
+        class="categoria entrada"
+        onclick="alert('Aquí irá RUNNING')">
+
+        <span>01 · COLECCIÓN</span>
+
+        <h2>RUNNING</h2>
+
+        <div class="flecha">
+          →
+        </div>
+
+      </div>
+
+
+      <div
+        class="categoria entrada"
+        onclick="alert('Aquí irá SOCCER')">
+
+        <span>02 · COLECCIÓN</span>
+
+        <h2>SOCCER</h2>
+
+        <div class="flecha">
+          →
+        </div>
+
+      </div>
+
+
+      <div
+        class="categoria entrada"
+        onclick="alert('Aquí irá TURF')">
+
+        <span>03 · COLECCIÓN</span>
+
+        <h2>TURF</h2>
+
+        <div class="flecha">
+          →
+        </div>
+
+      </div>
+
+
+      <div
+        class="categoria entrada"
+        onclick="alert('Aquí irá CASUAL')">
+
+        <span>04 · COLECCIÓN</span>
+
+        <h2>CASUAL</h2>
+
+        <div class="flecha">
+          →
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="pie">
+
+      <p>
+        EL DEPORTE NOS UNE
+      </p>
+
+    </div>
 
   </section>
 
 </div>
 
+
 <script>
 
-function irAlCatalogo() {
-  document.getElementById("catalogo").scrollIntoView({
+function abrirCatalogo() {
+
+  document.getElementById("menu").scrollIntoView({
     behavior: "smooth"
   });
+
 }
 
 </script>
