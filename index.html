@@ -127,3 +127,1067 @@ body {
 }
 
 .encabezado h1 {
+  font-size: 42px;
+  line-height: .95;
+  letter-spacing: -2px;
+}
+
+.encabezado p {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
+.categorias {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.categoria {
+  position: relative;
+
+  min-height: 105px;
+  padding: 25px;
+
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.025)
+    );
+
+  overflow: hidden;
+  cursor: pointer;
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+.categoria:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,.5);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.14),
+      rgba(255,255,255,.04)
+    );
+}
+
+.categoria span {
+  display: block;
+
+  font-size: 10px;
+  letter-spacing: 3px;
+
+  opacity: .5;
+
+  margin-bottom: 8px;
+}
+
+.categoria h2 {
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+
+.flecha {
+  position: absolute;
+
+  right: 22px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+/* =========================
+   RUNNING
+========================= */
+
+.seccion-running {
+  display: none;
+
+  min-height: 100vh;
+
+  padding: 45px 18px 70px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #330000,
+      transparent 30%
+    ),
+    #080808;
+}
+
+.seccion-running.activa {
+  display: block;
+  animation: aparecer .7s ease;
+}
+
+.titulo-seccion {
+  margin-bottom: 35px;
+}
+
+.titulo-seccion .numero {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #888;
+}
+
+.titulo-seccion h2 {
+  margin-top: 8px;
+
+  font-size: 48px;
+  line-height: .9;
+
+  letter-spacing: -3px;
+}
+
+.titulo-seccion p {
+  margin-top: 15px;
+
+  color: #999;
+
+  font-size: 13px;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.productos {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.producto {
+  position: relative;
+
+  background: #f3f3f3;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  min-height: 260px;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.45);
+}
+
+.producto img {
+  width: 100%;
+  height: 210px;
+
+  object-fit: contain;
+
+  display: block;
+
+  background: white;
+
+  transition: transform .5s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.05);
+}
+
+.producto-info {
+  padding: 12px 14px 16px;
+
+  color: #111;
+}
+
+.producto-info small {
+  display: block;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #777;
+
+  margin-bottom: 5px;
+}
+
+.producto-info strong {
+  font-size: 17px;
+}
+
+/* =========================
+   FICHA DEL PRODUCTO
+========================= */
+
+.ficha {
+  display: none;
+
+  position: fixed;
+
+  z-index: 100;
+
+  inset: 0;
+
+  background: rgba(0,0,0,.75);
+
+  backdrop-filter: blur(10px);
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+}
+
+.ficha.activa {
+  display: flex;
+
+  animation: aparecer .3s ease;
+}
+
+.ficha-contenido {
+  width: 100%;
+  max-width: 540px;
+
+  max-height: 92vh;
+
+  overflow-y: auto;
+
+  border-radius: 25px;
+
+  background: #f5f5f5;
+
+  color: #111;
+
+  position: relative;
+}
+
+.cerrar {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 15px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.7);
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.ficha-imagen {
+  width: 100%;
+
+  background: white;
+
+  padding: 20px;
+}
+
+.ficha-imagen img {
+  width: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.ficha-info {
+  padding: 25px;
+}
+
+.ficha-info .estilo {
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  color: #888;
+}
+
+.ficha-info h3 {
+  margin-top: 8px;
+
+  font-size: 38px;
+
+  letter-spacing: -2px;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-area {
+  margin-top: 25px;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  border-radius: 15px;
+
+  background: #111;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #777;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+}
+
+.boton-compra {
+  display: block;
+
+  margin-top: 20px;
+
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 40px;
+
+  background: #111;
+
+  color: white;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+}
+
+/* =========================
+   REGRESAR
+========================= */
+
+.regresar {
+  margin-top: 35px;
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid rgba(255,255,255,.2);
+
+  border-radius: 40px;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+}
+
+/* =========================
+   PIE
+========================= */
+
+.pie {
+  margin-top: 55px;
+  text-align: center;
+}
+
+.pie p {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #777;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.aparecer {
+  animation: aparecer 1.2s ease forwards;
+}
+
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+.entrada {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  animation:
+    entrada .8s ease forwards;
+}
+
+.entrada:nth-child(1) {
+  animation-delay: .1s;
+}
+
+.entrada:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.entrada:nth-child(3) {
+  animation-delay: .3s;
+}
+
+.entrada:nth-child(4) {
+  animation-delay: .4s;
+}
+
+@keyframes entrada {
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+  .portada {
+    min-height: 100vh;
+  }
+
+  .productos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .producto img {
+    height: 170px;
+  }
+
+  .titulo-seccion h2 {
+    font-size: 43px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="catalogo">
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<section class="portada aparecer">
+
+  <img
+    src="portada"
+    alt="UNION Catálogo 2026">
+
+  <button
+    class="boton-portada"
+    onclick="abrirCatalogo()">
+
+    VER CATÁLOGO
+
+  </button>
+
+</section>
+
+
+<!-- =========================
+     MENÚ
+========================= -->
+
+<section class="menu" id="menu">
+
+  <div class="encabezado">
+
+    <div class="mini-titulo">
+      UNION · 2026
+    </div>
+
+    <h1>
+      NUEVA<br>
+      COLECCIÓN
+    </h1>
+
+    <p>
+      Descubre nuestra colección deportiva.
+    </p>
+
+  </div>
+
+
+  <div class="categorias">
+
+    <div
+      class="categoria entrada"
+      onclick="abrirRunning()">
+
+      <span>
+        01 · COLECCIÓN
+      </span>
+
+      <h2>
+        RUNNING
+      </h2>
+
+      <div class="flecha">
+        →
+      </div>
+
+    </div>
+
+
+    <div
+      class="categoria entrada"
+      onclick="proximamente()">
+
+      <span>
+        02 · COLECCIÓN
+      </span>
+
+      <h2>
+        SOCCER
+      </h2>
+
+      <div class="flecha">
+        →
+      </div>
+
+    </div>
+
+
+    <div
+      class="categoria entrada"
+      onclick="proximamente()">
+
+      <span>
+        03 · COLECCIÓN
+      </span>
+
+      <h2>
+        TURF
+      </h2>
+
+      <div class="flecha">
+        →
+      </div>
+
+    </div>
+
+
+    <div
+      class="categoria entrada"
+      onclick="proximamente()">
+
+      <span>
+        04 · COLECCIÓN
+      </span>
+
+      <h2>
+        CASUAL
+      </h2>
+
+      <div class="flecha">
+        →
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="pie">
+
+    <p>
+      EL DEPORTE NOS UNE
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     RUNNING
+========================= -->
+
+<section
+  class="seccion-running"
+  id="running">
+
+  <div class="titulo-seccion">
+
+    <div class="numero">
+      UNION · 01
+    </div>
+
+    <h2>
+      RUNNING
+    </h2>
+
+    <p>
+      Performance Collection
+    </p>
+
+  </div>
+
+
+  <div class="productos">
+
+
+    <!-- ESTILO 527 -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('527')">
+
+      <img
+        src="estilo-527.jpg"
+        alt="UNION Estilo 527">
+
+      <div class="producto-info">
+
+        <small>
+          ESTILO
+        </small>
+
+        <strong>
+          527
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- ESTILO 538 -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('538')">
+
+      <img
+        src="estilo-538.jpg"
+        alt="UNION Estilo 538">
+
+      <div class="producto-info">
+
+        <small>
+          ESTILO
+        </small>
+
+        <strong>
+          538
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- ESTILO 542 -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('542')">
+
+      <img
+        src="estilo-542.png"
+        alt="UNION Estilo 542">
+
+      <div class="producto-info">
+
+        <small>
+          ESTILO
+        </small>
+
+        <strong>
+          542
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- ESTILO 544 -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('544')">
+
+      <img
+        src="estilo-544.jpg"
+        alt="UNION Estilo 544">
+
+      <div class="producto-info">
+
+        <small>
+          ESTILO
+        </small>
+
+        <strong>
+          544
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- ESTILO 545 -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('545')">
+
+      <img
+        src="estilo-545.png"
+        alt="UNION Estilo 545">
+
+      <div class="producto-info">
+
+        <small>
+          ESTILO
+        </small>
+
+        <strong>
+          545
+        </strong>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    class="regresar"
+    onclick="regresarMenu()">
+
+    ← VOLVER AL MENÚ
+
+  </button>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     FICHA DEL PRODUCTO
+========================= -->
+
+<div
+  class="ficha"
+  id="ficha">
+
+  <div class="ficha-contenido">
+
+    <button
+      class="cerrar"
+      onclick="cerrarProducto()">
+
+      ×
+
+    </button>
+
+
+    <div class="ficha-imagen">
+
+      <img
+        id="imagenProducto"
+        src=""
+        alt="Producto UNION">
+
+    </div>
+
+
+    <div class="ficha-info">
+
+      <div
+        class="estilo"
+        id="numeroProducto">
+
+        ESTILO
+
+      </div>
+
+
+      <h3 id="tituloProducto">
+        UNION
+      </h3>
+
+
+      <div class="video-area">
+
+        VIDEO DEL PRODUCTO
+
+      </div>
+
+
+      <button
+        class="boton-compra"
+        onclick="alert('Aquí podremos colocar el enlace de compra')">
+
+        VER / COMPRAR
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   PORTADA
+========================= */
+
+function abrirCatalogo() {
+
+  document
+    .getElementById("menu")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   ABRIR RUNNING
+========================= */
+
+function abrirRunning() {
+
+  const running =
+    document.getElementById("running");
+
+  running.classList.add("activa");
+
+  setTimeout(function() {
+
+    running.scrollIntoView({
+      behavior: "smooth"
+    });
+
+  }, 100);
+
+}
+
+
+/* =========================
+   EXTENSIONES REALES
+========================= */
+
+const extensiones = {
+
+  "527": "jpg",
+
+  "538": "jpg",
+
+  "542": "png",
+
+  "544": "jpg",
+
+  "545": "png"
+
+};
+
+
+/* =========================
+   ABRIR PRODUCTO
+========================= */
+
+function abrirProducto(estilo) {
+
+  const imagen =
+    document.getElementById(
+      "imagenProducto"
+    );
+
+  const numero =
+    document.getElementById(
+      "numeroProducto"
+    );
+
+  const titulo =
+    document.getElementById(
+      "tituloProducto"
+    );
+
+
+  imagen.src =
+    "estilo-" +
+    estilo +
+    "." +
+    extensiones[estilo];
+
+
+  numero.textContent =
+    "ESTILO " + estilo;
+
+
+  titulo.textContent =
+    "UNION " + estilo;
+
+
+  document
+    .getElementById("ficha")
+    .classList.add("activa");
+
+}
+
+
+/* =========================
+   CERRAR PRODUCTO
+========================= */
+
+function cerrarProducto() {
+
+  document
+    .getElementById("ficha")
+    .classList.remove("activa");
+
+}
+
+
+/* =========================
+   VOLVER AL MENÚ
+========================= */
+
+function regresarMenu() {
+
+  document
+    .getElementById("menu")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   PRÓXIMAMENTE
+========================= */
+
+function proximamente() {
+
+  alert(
+    "Esta sección la construiremos próximamente ✨"
+  );
+
+}
+
+
+/* =========================
+   CERRAR FICHA
+========================= */
+
+document
+  .getElementById("ficha")
+  .addEventListener(
+    "click",
+    function(event) {
+
+      if (event.target === this) {
+
+        cerrarProducto();
+
+      }
+
+    }
+  );
+
+
+/* =========================
+   ESCAPE PARA CERRAR
+========================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Escape") {
+
+      cerrarProducto();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
