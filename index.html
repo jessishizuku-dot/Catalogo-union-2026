@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>UNION — Catálogo 2026</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #080808;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #book {
+      width: min(92vw, 582px);
+      height: min(92vh, 826px);
+    }
+
+    .page {
+      background: #111;
+      overflow: hidden;
+      position: relative;
+      color: white;
+    }
+
+    .cover {
+      background:
+        radial-gradient(circle at 75% 20%, #e50000 0%, transparent 30%),
+        linear-gradient(145deg, #050505 20%, #190000 55%, #050505 100%);
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      width: 160%;
+      height: 180px;
+      background: #d90000;
+      transform: rotate(-25deg);
+      left: -40%;
+      bottom: 180px;
+      opacity: .75;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 55px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .small-title {
+      letter-spacing: 8px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .year {
+      font-size: clamp(80px, 18vw, 145px);
+      font-weight: 900;
+      line-height: .8;
+      text-align: center;
+      color: white;
+      text-shadow: 0 0 25px rgba(255,0,0,.4);
+    }
+
+    .subtitle {
+      text-align: center;
+      letter-spacing: 5px;
+      font-size: 15px;
+    }
+
+    .fake-shoe {
+      position: absolute;
+      z-index: 3;
+      width: 90%;
+      height: 190px;
+      right: 2%;
+      bottom: 110px;
+      transform: rotate(-10deg);
+      border-radius: 45% 15% 35% 20%;
+      background: linear-gradient(120deg, #ff1616, #bd0000 55%, #080808 56%);
+      box-shadow:
+        0 20px 40px rgba(0,0,0,.8),
+        0 0 35px rgba(255,0,0,.45);
+    }
+
+    .fake-shoe::after {
+      content: "";
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      bottom: -18px;
+      height: 35px;
+      border-radius: 50%;
+      background: #eee;
+    }
+
+    .product {
+      padding: 40px 30px;
+      background: #f4f4f4;
+      color: #111;
+    }
+
+    .product h2 {
+      margin-top: 0;
+      font-size: 35px;
+    }
+
+    .product-card {
+      margin-top: 30px;
+      height: 350px;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, #222, #111);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 25px;
+      background: #e00000;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .last {
+      background: #050505;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .last h2 {
+      font-size: 50px;
+      color: #e00000;
+    }
+
+    @media (max-width: 600px) {
+      #book {
+        width: 94vw;
+        height: 90vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="book">
+
+    <!-- PORTADA -->
+    <div class="page cover" data-density="hard">
+      <div class="cover-content">
+
+        <div class="small-title">
+          CATÁLOGO
+        </div>
+
+        <div class="year">
+          2026
+        </div>
+
+        <div class="subtitle">
+          EL DEPORTE NOS UNE
+        </div>
+
+      </div>
+
+      <div class="fake-shoe"></div>
+    </div>
+
+
+    <!-- PÁGINA 2 -->
+    <div class="page product">
+
+      <h2>FOOTBALL</h2>
+
+      <p>
+        Rendimiento, estilo y disciplina.
+      </p>
+
+      <div class="product-card">
+        TU PRODUCTO AQUÍ
+      </div>
+
+      <a class="button" href="#">
+        VER MODELO
+      </a>
+
+    </div>
+
+
+    <!-- PÁGINA 3 -->
+    <div class="page product">
+
+      <h2>UNION</h2>
+
+      <p>
+        Diseñado para llevar tu juego al siguiente nivel.
+      </p>
+
+      <div class="product-card">
+        AQUÍ PONDREMOS EL VIDEO 🎥
+      </div>
+
+      <a class="button" href="#">
+        COMPRAR
+      </a>
+
+    </div>
+
+
+    <!-- CONTRAPORTADA -->
+    <div class="page last" data-density="hard">
+
+      <div>
+        <h2>RITMO.</h2>
+        <p>Siguiendo tus pasos.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Librería gratuita de efecto de páginas -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+
+  <script>
+
+    const book = document.getElementById("book");
+
+    const pageFlip = new St.PageFlip(book, {
+
+      width: 582,
+      height: 826,
+
+      size: "stretch",
+
+      minWidth: 280,
+      maxWidth: 582,
+
+      minHeight: 400,
+      maxHeight: 826,
+
+      showCover: true,
+
+      usePortrait: true,
+
+      mobileScrollSupport: true,
+
+      drawShadow: true,
+
+      flippingTime: 900,
+
+      maxShadowOpacity: 0.35
+
+    });
+
+    pageFlip.loadFromHTML(
+      document.querySelectorAll(".page")
+    );
+
+  </script>
+
+</body>
+</html>
