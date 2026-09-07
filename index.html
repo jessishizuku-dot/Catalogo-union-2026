@@ -1,296 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>UNION — Catálogo 2026</title>
+<title>UNION — Catálogo 2026</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #080808;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: #050505;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+body {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
 
-    #book {
-      width: min(92vw, 582px);
-      height: min(92vh, 826px);
-    }
+/* CATÁLOGO */
+.catalogo {
+  width: 100%;
+  max-width: 582px;
+  min-height: 100vh;
+  background: #080808;
+  overflow: hidden;
+}
 
-    .page {
-      background: #111;
-      overflow: hidden;
-      position: relative;
-      color: white;
-    }
+/* PORTADA */
+.portada {
+  width: 100%;
+  height: 100vh;
+  min-height: 826px;
+  position: relative;
+  overflow: hidden;
+  background: #050505;
+}
 
-    .cover {
-      background:
-        radial-gradient(circle at 75% 20%, #e50000 0%, transparent 30%),
-        linear-gradient(145deg, #050505 20%, #190000 55%, #050505 100%);
-    }
+.portada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    .cover::after {
-      content: "";
-      position: absolute;
-      width: 160%;
-      height: 180px;
-      background: #d90000;
-      transform: rotate(-25deg);
-      left: -40%;
-      bottom: 180px;
-      opacity: .75;
-    }
+/* BOTÓN */
+.boton {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 30px;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 40px;
+  color: white;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
+  font-size: 13px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .3s;
+}
 
-    .cover-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      padding: 55px 35px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.boton:hover {
+  background: white;
+  color: black;
+}
 
-    .small-title {
-      letter-spacing: 8px;
-      font-size: 18px;
-      text-align: center;
-    }
+/* SEGUNDA PÁGINA */
+.pagina {
+  min-height: 100vh;
+  padding: 60px 25px;
+  background: #f5f5f5;
+  color: #111;
+}
 
-    .year {
-      font-size: clamp(80px, 18vw, 145px);
-      font-weight: 900;
-      line-height: .8;
-      text-align: center;
-      color: white;
-      text-shadow: 0 0 25px rgba(255,0,0,.4);
-    }
+.pagina h1 {
+  font-size: 42px;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+}
 
-    .subtitle {
-      text-align: center;
-      letter-spacing: 5px;
-      font-size: 15px;
-    }
+.pagina p {
+  color: #666;
+  font-size: 15px;
+}
 
-    .fake-shoe {
-      position: absolute;
-      z-index: 3;
-      width: 90%;
-      height: 190px;
-      right: 2%;
-      bottom: 110px;
-      transform: rotate(-10deg);
-      border-radius: 45% 15% 35% 20%;
-      background: linear-gradient(120deg, #ff1616, #bd0000 55%, #080808 56%);
-      box-shadow:
-        0 20px 40px rgba(0,0,0,.8),
-        0 0 35px rgba(255,0,0,.45);
-    }
+/* ANIMACIÓN */
+.aparecer {
+  animation: aparecer 1.2s ease forwards;
+}
 
-    .fake-shoe::after {
-      content: "";
-      position: absolute;
-      left: 5%;
-      right: 5%;
-      bottom: -18px;
-      height: 35px;
-      border-radius: 50%;
-      background: #eee;
-    }
-
-    .product {
-      padding: 40px 30px;
-      background: #f4f4f4;
-      color: #111;
-    }
-
-    .product h2 {
-      margin-top: 0;
-      font-size: 35px;
-    }
-
-    .product-card {
-      margin-top: 30px;
-      height: 350px;
-      border-radius: 20px;
-      background:
-        linear-gradient(135deg, #222, #111);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 25px;
-      background: #e00000;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .last {
-      background: #050505;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .last h2 {
-      font-size: 50px;
-      color: #e00000;
-    }
-
-    @media (max-width: 600px) {
-      #book {
-        width: 94vw;
-        height: 90vh;
-      }
-    }
-  </style>
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div id="book">
+<div class="catalogo">
 
-    <!-- PORTADA -->
-    <div class="page cover" data-density="hard">
-      <div class="cover-content">
+  <!-- PORTADA -->
+  <section class="portada aparecer">
 
-        <div class="small-title">
-          CATÁLOGO
-        </div>
+    <img src="portada" alt="Catálogo UNION 2026">
 
-        <div class="year">
-          2026
-        </div>
+    <button class="boton" onclick="irAlCatalogo()">
+      VER CATÁLOGO
+    </button>
 
-        <div class="subtitle">
-          EL DEPORTE NOS UNE
-        </div>
+  </section>
 
-      </div>
+  <!-- PRIMERA PÁGINA -->
+  <section class="pagina" id="catalogo">
 
-      <div class="fake-shoe"></div>
-    </div>
+    <p>UNION · 2026</p>
 
+    <h1>EL DEPORTE<br>NOS UNE.</h1>
 
-    <!-- PÁGINA 2 -->
-    <div class="page product">
+    <p>
+      Descubre nuestra nueva colección.
+    </p>
 
-      <h2>FOOTBALL</h2>
+  </section>
 
-      <p>
-        Rendimiento, estilo y disciplina.
-      </p>
+</div>
 
-      <div class="product-card">
-        TU PRODUCTO AQUÍ
-      </div>
+<script>
 
-      <a class="button" href="#">
-        VER MODELO
-      </a>
+function irAlCatalogo() {
+  document.getElementById("catalogo").scrollIntoView({
+    behavior: "smooth"
+  });
+}
 
-    </div>
-
-
-    <!-- PÁGINA 3 -->
-    <div class="page product">
-
-      <h2>UNION</h2>
-
-      <p>
-        Diseñado para llevar tu juego al siguiente nivel.
-      </p>
-
-      <div class="product-card">
-        AQUÍ PONDREMOS EL VIDEO 🎥
-      </div>
-
-      <a class="button" href="#">
-        COMPRAR
-      </a>
-
-    </div>
-
-
-    <!-- CONTRAPORTADA -->
-    <div class="page last" data-density="hard">
-
-      <div>
-        <h2>RITMO.</h2>
-        <p>Siguiendo tus pasos.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- Librería gratuita de efecto de páginas -->
-  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
-
-  <script>
-
-    const book = document.getElementById("book");
-
-    const pageFlip = new St.PageFlip(book, {
-
-      width: 582,
-      height: 826,
-
-      size: "stretch",
-
-      minWidth: 280,
-      maxWidth: 582,
-
-      minHeight: 400,
-      maxHeight: 826,
-
-      showCover: true,
-
-      usePortrait: true,
-
-      mobileScrollSupport: true,
-
-      drawShadow: true,
-
-      flippingTime: 900,
-
-      maxShadowOpacity: 0.35
-
-    });
-
-    pageFlip.loadFromHTML(
-      document.querySelectorAll(".page")
-    );
-
-  </script>
+</script>
 
 </body>
 </html>
