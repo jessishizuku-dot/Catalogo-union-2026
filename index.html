@@ -274,7 +274,7 @@ body{
 
 
 /* =========================
-   PUBLICIDAD
+   PUBLICIDAD TIEMPO
 ========================= */
 
 .publicidad-tiempo{
@@ -282,6 +282,12 @@ body{
   display:block;
   border-radius:20px;
   margin-bottom:38px;
+  cursor:pointer;
+  transition:.35s;
+}
+
+.publicidad-tiempo:hover{
+  transform:scale(1.01);
 }
 
 
@@ -753,6 +759,8 @@ body{
   <div class="productos">
 
 
+    <!-- 527 -->
+
     <div
       class="producto"
       onclick="abrirProducto('527')">
@@ -767,10 +775,16 @@ body{
 
         <strong>527</strong>
 
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
+
       </div>
 
     </div>
 
+
+    <!-- 538 -->
 
     <div
       class="producto"
@@ -786,10 +800,16 @@ body{
 
         <strong>538</strong>
 
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
+
       </div>
 
     </div>
 
+
+    <!-- 542 -->
 
     <div
       class="producto"
@@ -805,10 +825,16 @@ body{
 
         <strong>542</strong>
 
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
+
       </div>
 
     </div>
 
+
+    <!-- 544 -->
 
     <div
       class="producto"
@@ -824,10 +850,16 @@ body{
 
         <strong>544</strong>
 
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
+
       </div>
 
     </div>
 
+
+    <!-- 545 -->
 
     <div
       class="producto"
@@ -843,10 +875,16 @@ body{
 
         <strong>545</strong>
 
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: CORRIDA 25 AL 29
+        </span>
+
       </div>
 
     </div>
 
+
+    <!-- 545 DAMA -->
 
     <div
       class="producto"
@@ -861,6 +899,10 @@ body{
         <small>ESTILO</small>
 
         <strong>545 DAMA</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: SOLO CORRIDA 22-26
+        </span>
 
       </div>
 
@@ -937,12 +979,15 @@ body{
   </div>
 
 
-  <!-- PUBLICIDAD TIEMPO -->
+  <!-- PUBLICIDAD TIEMPO
+       TODA LA IMAGEN ES CLICKEABLE
+  -->
 
   <img
     class="publicidad-tiempo"
     src="publicidad-tiempo.png"
-    alt="Nuevas combinaciones Estilo Tiempo">
+    alt="Nuevas combinaciones Estilo Tiempo"
+    onclick="abrirProducto('tiempo')">
 
 
   <!-- PRODUCTOS -->
