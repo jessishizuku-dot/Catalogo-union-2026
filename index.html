@@ -8,103 +8,100 @@
 
 <style>
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  background: #050505;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
+body{
+  background:#050505;
+  font-family:Arial,Helvetica,sans-serif;
+  color:white;
 }
 
-.catalogo {
-  width: 100%;
-  max-width: 582px;
-  margin: auto;
-  background: #080808;
-  overflow: hidden;
+.catalogo{
+  width:100%;
+  max-width:582px;
+  margin:auto;
+  background:#080808;
+  overflow:hidden;
 }
+
 
 /* =========================
    PORTADA
 ========================= */
 
-.portada {
-  width: 100%;
-  height: 100vh;
-  min-height: 826px;
-  position: relative;
-  overflow: hidden;
+.portada{
+  width:100%;
+  height:100vh;
+  min-height:826px;
+  position:relative;
+  overflow:hidden;
 }
 
-.portada img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.portada img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
-.portada::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
+.portada::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
     to bottom,
-    rgba(0,0,0,0.02),
-    rgba(0,0,0,0.30)
+    rgba(0,0,0,.02),
+    rgba(0,0,0,.30)
   );
-  pointer-events: none;
+  pointer-events:none;
 }
 
-/* =========================
-   BOTÓN PORTADA
-========================= */
+.boton-portada{
+  position:absolute;
+  z-index:5;
+  bottom:38px;
+  left:50%;
+  transform:translateX(-50%);
 
-.boton-portada {
-  position: absolute;
-  z-index: 5;
-  bottom: 38px;
-  left: 50%;
-  transform: translateX(-50%);
+  padding:15px 32px;
 
-  padding: 15px 32px;
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:50px;
 
-  border: 1px solid rgba(255,255,255,.8);
-  border-radius: 50px;
+  color:white;
+  background:rgba(0,0,0,.45);
 
-  color: white;
-  background: rgba(0,0,0,.45);
+  backdrop-filter:blur(12px);
 
-  backdrop-filter: blur(12px);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
 
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-
-  cursor: pointer;
-  transition: .35s;
+  cursor:pointer;
+  transition:.35s;
 }
 
-.boton-portada:hover {
-  background: white;
-  color: black;
-  transform: translateX(-50%) scale(1.05);
+.boton-portada:hover{
+  background:white;
+  color:black;
 }
+
 
 /* =========================
    MENÚ
 ========================= */
 
-.menu {
-  min-height: 100vh;
-  padding: 55px 22px 70px;
+.menu{
+  min-height:100vh;
+  padding:55px 22px 70px;
 
   background:
     radial-gradient(
@@ -115,47 +112,48 @@ body {
     #080808;
 }
 
-.encabezado {
-  margin-bottom: 40px;
+.encabezado{
+  margin-bottom:40px;
 }
 
-.mini-titulo {
-  font-size: 11px;
-  letter-spacing: 4px;
-  opacity: .55;
-  margin-bottom: 12px;
+.mini-titulo{
+  font-size:11px;
+  letter-spacing:4px;
+  opacity:.55;
+  margin-bottom:12px;
 }
 
-.encabezado h1 {
-  font-size: 42px;
-  line-height: .95;
-  letter-spacing: -2px;
+.encabezado h1{
+  font-size:42px;
+  line-height:.95;
+  letter-spacing:-2px;
 }
 
-.encabezado p {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #aaa;
+.encabezado p{
+  margin-top:15px;
+  font-size:13px;
+  color:#aaa;
 }
+
 
 /* =========================
    CATEGORÍAS
 ========================= */
 
-.categorias {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.categorias{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
-.categoria {
-  position: relative;
+.categoria{
+  position:relative;
 
-  min-height: 105px;
-  padding: 25px;
+  min-height:105px;
+  padding:25px;
 
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:18px;
 
   background:
     linear-gradient(
@@ -164,74 +162,65 @@ body {
       rgba(255,255,255,.025)
     );
 
-  overflow: hidden;
-  cursor: pointer;
+  overflow:hidden;
+  cursor:pointer;
 
-  transition:
-    transform .35s ease,
-    border-color .35s ease,
-    background .35s ease;
+  transition:.35s;
 }
 
-.categoria:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255,255,255,.5);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.14),
-      rgba(255,255,255,.04)
-    );
+.categoria:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.5);
 }
 
-.categoria span {
-  display: block;
+.categoria span{
+  display:block;
 
-  font-size: 10px;
-  letter-spacing: 3px;
+  font-size:10px;
+  letter-spacing:3px;
 
-  opacity: .5;
+  opacity:.5;
 
-  margin-bottom: 8px;
+  margin-bottom:8px;
 }
 
-.categoria h2 {
-  font-size: 25px;
-  letter-spacing: -1px;
+.categoria h2{
+  font-size:25px;
+  letter-spacing:-1px;
 }
 
-.flecha {
-  position: absolute;
+.flecha{
+  position:absolute;
 
-  right: 22px;
-  top: 50%;
+  right:22px;
+  top:50%;
 
-  transform: translateY(-50%);
+  transform:translateY(-50%);
 
-  width: 38px;
-  height: 38px;
+  width:38px;
+  height:38px;
 
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 50%;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  font-size: 18px;
+  font-size:18px;
 }
+
 
 /* =========================
    RUNNING
 ========================= */
 
-.seccion-running {
-  display: none;
+.seccion-running{
+  display:none;
 
-  min-height: 100vh;
+  min-height:100vh;
 
-  padding: 45px 18px 70px;
+  padding:45px 18px 70px;
 
   background:
     radial-gradient(
@@ -242,388 +231,428 @@ body {
     #080808;
 }
 
-.seccion-running.activa {
-  display: block;
-  animation: aparecer .7s ease;
+.seccion-running.activa{
+  display:block;
+
+  animation:aparecer .7s ease;
 }
 
-.titulo-seccion {
-  margin-bottom: 35px;
+
+/* =========================
+   TÍTULO RUNNING
+========================= */
+
+.titulo-seccion{
+  margin-bottom:30px;
 }
 
-.titulo-seccion .numero {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: #888;
+.titulo-seccion .numero{
+  font-size:10px;
+  letter-spacing:4px;
+  color:#888;
 }
 
-.titulo-seccion h2 {
-  margin-top: 8px;
+.titulo-seccion h2{
+  margin-top:8px;
 
-  font-size: 48px;
-  line-height: .9;
+  font-size:48px;
+  line-height:.9;
 
-  letter-spacing: -3px;
+  letter-spacing:-3px;
 }
 
-.titulo-seccion p {
-  margin-top: 15px;
+.titulo-seccion p{
+  margin-top:15px;
 
-  color: #999;
+  color:#999;
 
-  font-size: 13px;
+  font-size:13px;
 }
+
+
+/* =========================
+   VIDEO RUNNING
+========================= */
+
+.video-general{
+  margin-bottom:38px;
+}
+
+.video-etiqueta{
+  font-size:10px;
+  letter-spacing:3px;
+  color:#888;
+
+  margin-bottom:12px;
+}
+
+.video-running{
+  width:100%;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  background:#000;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.45);
+}
+
+.video-running video{
+  width:100%;
+  display:block;
+
+  aspect-ratio:16/9;
+
+  object-fit:cover;
+}
+
 
 /* =========================
    PRODUCTOS
 ========================= */
 
-.productos {
-  display: grid;
+.productos{
+  display:grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:1fr 1fr;
 
-  gap: 12px;
+  gap:12px;
 }
 
-.producto {
-  position: relative;
+.producto{
+  position:relative;
 
-  background: #f3f3f3;
+  background:#f3f3f3;
 
-  border-radius: 18px;
+  border-radius:18px;
 
-  overflow: hidden;
+  overflow:hidden;
 
-  cursor: pointer;
+  cursor:pointer;
 
-  min-height: 260px;
+  min-height:260px;
 
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
+  transition:.35s;
 }
 
-.producto:hover {
-  transform: translateY(-5px);
+.producto:hover{
+  transform:translateY(-5px);
 
   box-shadow:
     0 20px 40px rgba(0,0,0,.45);
 }
 
-.producto img {
-  width: 100%;
-  height: 210px;
+.producto img{
+  width:100%;
+  height:210px;
 
-  object-fit: contain;
+  object-fit:contain;
 
-  display: block;
+  display:block;
 
-  background: white;
+  background:white;
 
-  transition: transform .5s ease;
+  transition:.5s;
 }
 
-.producto:hover img {
-  transform: scale(1.05);
+.producto:hover img{
+  transform:scale(1.05);
 }
 
-.producto-info {
-  padding: 12px 14px 16px;
+.producto-info{
+  padding:12px 14px 16px;
 
-  color: #111;
+  color:#111;
 }
 
-.producto-info small {
-  display: block;
+.producto-info small{
+  display:block;
 
-  font-size: 9px;
+  font-size:9px;
 
-  letter-spacing: 2px;
+  letter-spacing:2px;
 
-  color: #777;
+  color:#777;
 
-  margin-bottom: 5px;
+  margin-bottom:5px;
 }
 
-.producto-info strong {
-  font-size: 17px;
+.producto-info strong{
+  font-size:17px;
 }
+
 
 /* =========================
-   FICHA DEL PRODUCTO
+   FICHA PRODUCTO
 ========================= */
 
-.ficha {
-  display: none;
+.ficha{
+  display:none;
 
-  position: fixed;
+  position:fixed;
 
-  z-index: 100;
+  z-index:100;
 
-  inset: 0;
+  inset:0;
 
-  background: rgba(0,0,0,.75);
+  background:rgba(0,0,0,.75);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
 
-  align-items: center;
-  justify-content: center;
+  align-items:center;
+  justify-content:center;
 
-  padding: 18px;
+  padding:18px;
 }
 
-.ficha.activa {
-  display: flex;
+.ficha.activa{
+  display:flex;
 
-  animation: aparecer .3s ease;
+  animation:aparecer .3s ease;
 }
 
-.ficha-contenido {
-  width: 100%;
-  max-width: 540px;
+.ficha-contenido{
+  width:100%;
+  max-width:540px;
 
-  max-height: 92vh;
+  max-height:92vh;
 
-  overflow-y: auto;
+  overflow-y:auto;
 
-  border-radius: 25px;
+  border-radius:25px;
 
-  background: #f5f5f5;
+  background:#f5f5f5;
 
-  color: #111;
+  color:#111;
 
-  position: relative;
+  position:relative;
 }
 
-.cerrar {
-  position: absolute;
+.cerrar{
+  position:absolute;
 
-  z-index: 5;
+  z-index:5;
 
-  top: 15px;
-  right: 15px;
+  top:15px;
+  right:15px;
 
-  width: 38px;
-  height: 38px;
+  width:38px;
+  height:38px;
 
-  border: none;
+  border:none;
 
-  border-radius: 50%;
+  border-radius:50%;
 
-  background: rgba(0,0,0,.7);
+  background:rgba(0,0,0,.7);
 
-  color: white;
+  color:white;
 
-  font-size: 20px;
+  font-size:20px;
 
-  cursor: pointer;
+  cursor:pointer;
 }
 
-.ficha-imagen {
-  width: 100%;
+.ficha-imagen{
+  width:100%;
 
-  background: white;
+  background:white;
 
-  padding: 20px;
+  padding:20px;
 }
 
-.ficha-imagen img {
-  width: 100%;
+.ficha-imagen img{
+  width:100%;
 
-  display: block;
+  display:block;
 
-  object-fit: contain;
+  object-fit:contain;
 }
 
-.ficha-info {
-  padding: 25px;
+.ficha-info{
+  padding:25px;
 }
 
-.ficha-info .estilo {
-  font-size: 10px;
+.ficha-info .estilo{
+  font-size:10px;
 
-  letter-spacing: 4px;
+  letter-spacing:4px;
 
-  color: #888;
+  color:#888;
 }
 
-.ficha-info h3 {
-  margin-top: 8px;
+.ficha-info h3{
+  margin-top:8px;
 
-  font-size: 38px;
+  font-size:38px;
 
-  letter-spacing: -2px;
+  letter-spacing:-2px;
 }
+
 
 /* =========================
-   VIDEO
+   BOTÓN COLORES
 ========================= */
 
-.video-area {
-  margin-top: 25px;
+.boton-colores{
+  display:block;
 
-  width: 100%;
+  margin-top:25px;
 
-  aspect-ratio: 16 / 9;
+  width:100%;
 
-  border-radius: 15px;
+  padding:16px;
 
-  background: #111;
+  border:none;
 
-  display: flex;
+  border-radius:40px;
 
-  align-items: center;
-  justify-content: center;
+  background:#111;
 
-  color: #777;
+  color:white;
 
-  font-size: 11px;
+  font-weight:bold;
 
-  letter-spacing: 2px;
+  letter-spacing:2px;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  cursor:pointer;
+
+  transition:.3s;
 }
 
-.boton-compra {
-  display: block;
-
-  margin-top: 20px;
-
-  width: 100%;
-
-  padding: 16px;
-
-  border: none;
-
-  border-radius: 40px;
-
-  background: #111;
-
-  color: white;
-
-  font-weight: bold;
-
-  letter-spacing: 2px;
-
-  cursor: pointer;
+.boton-colores:hover{
+  background:#333;
 }
+
 
 /* =========================
    REGRESAR
 ========================= */
 
-.regresar {
-  margin-top: 35px;
+.regresar{
+  margin-top:35px;
 
-  width: 100%;
+  width:100%;
 
-  padding: 14px;
+  padding:14px;
 
-  border: 1px solid rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.2);
 
-  border-radius: 40px;
+  border-radius:40px;
 
-  background: transparent;
+  background:transparent;
 
-  color: white;
+  color:white;
 
-  font-size: 11px;
+  font-size:11px;
 
-  letter-spacing: 2px;
+  letter-spacing:2px;
 
-  cursor: pointer;
+  cursor:pointer;
 }
+
 
 /* =========================
    PIE
 ========================= */
 
-.pie {
-  margin-top: 55px;
-  text-align: center;
+.pie{
+  margin-top:55px;
+
+  text-align:center;
 }
 
-.pie p {
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: #777;
+.pie p{
+  font-size:9px;
+
+  letter-spacing:3px;
+
+  color:#777;
 }
+
 
 /* =========================
    ANIMACIONES
 ========================= */
 
-.aparecer {
-  animation: aparecer 1.2s ease forwards;
+.aparecer{
+  animation:aparecer 1.2s ease forwards;
 }
 
-@keyframes aparecer {
+@keyframes aparecer{
 
-  from {
-    opacity: 0;
-    transform: scale(1.03);
+  from{
+    opacity:0;
+    transform:scale(1.03);
   }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
+  to{
+    opacity:1;
+    transform:scale(1);
   }
 
 }
 
-.entrada {
-  opacity: 0;
+.entrada{
+  opacity:0;
 
-  transform: translateY(25px);
+  transform:translateY(25px);
 
   animation:
     entrada .8s ease forwards;
 }
 
-.entrada:nth-child(1) {
-  animation-delay: .1s;
+.entrada:nth-child(1){
+  animation-delay:.1s;
 }
 
-.entrada:nth-child(2) {
-  animation-delay: .2s;
+.entrada:nth-child(2){
+  animation-delay:.2s;
 }
 
-.entrada:nth-child(3) {
-  animation-delay: .3s;
+.entrada:nth-child(3){
+  animation-delay:.3s;
 }
 
-.entrada:nth-child(4) {
-  animation-delay: .4s;
+.entrada:nth-child(4){
+  animation-delay:.4s;
 }
 
-@keyframes entrada {
+@keyframes entrada{
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 
 }
+
 
 /* =========================
    MÓVIL
 ========================= */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-  .portada {
-    min-height: 100vh;
+  .portada{
+    min-height:100vh;
   }
 
-  .productos {
-    grid-template-columns: 1fr 1fr;
+  .productos{
+    grid-template-columns:1fr 1fr;
   }
 
-  .producto img {
-    height: 170px;
+  .producto img{
+    height:170px;
   }
 
-  .titulo-seccion h2 {
-    font-size: 43px;
+  .titulo-seccion h2{
+    font-size:43px;
   }
 
 }
@@ -631,9 +660,11 @@ body {
 </style>
 </head>
 
+
 <body>
 
 <div class="catalogo">
+
 
 <!-- =========================
      PORTADA
@@ -660,7 +691,9 @@ body {
      MENÚ
 ========================= -->
 
-<section class="menu" id="menu">
+<section
+  class="menu"
+  id="menu">
 
   <div class="encabezado">
 
@@ -682,6 +715,9 @@ body {
 
   <div class="categorias">
 
+
+    <!-- RUNNING -->
+
     <div
       class="categoria entrada"
       onclick="abrirRunning()">
@@ -700,6 +736,8 @@ body {
 
     </div>
 
+
+    <!-- SOCCER -->
 
     <div
       class="categoria entrada"
@@ -720,6 +758,8 @@ body {
     </div>
 
 
+    <!-- TURF -->
+
     <div
       class="categoria entrada"
       onclick="proximamente()">
@@ -739,6 +779,8 @@ body {
     </div>
 
 
+    <!-- CASUAL -->
+
     <div
       class="categoria entrada"
       onclick="proximamente()">
@@ -756,6 +798,7 @@ body {
       </div>
 
     </div>
+
 
   </div>
 
@@ -779,6 +822,7 @@ body {
   class="seccion-running"
   id="running">
 
+
   <div class="titulo-seccion">
 
     <div class="numero">
@@ -796,10 +840,40 @@ body {
   </div>
 
 
+  <!-- VIDEO GENERAL -->
+
+  <div class="video-general">
+
+    <div class="video-etiqueta">
+      UNION · RUNNING
+    </div>
+
+    <div class="video-running">
+
+      <video
+        controls
+        playsinline
+        preload="metadata">
+
+        <source
+          src="video-running.mp4"
+          type="video/mp4">
+
+        Tu navegador no puede reproducir este video.
+
+      </video>
+
+    </div>
+
+  </div>
+
+
+  <!-- PRODUCTOS -->
+
   <div class="productos">
 
 
-    <!-- ESTILO 527 -->
+    <!-- 527 -->
 
     <div
       class="producto"
@@ -807,7 +881,7 @@ body {
 
       <img
         src="estilo-527.jpg"
-        alt="UNION Estilo 527">
+        alt="UNION 527">
 
       <div class="producto-info">
 
@@ -824,7 +898,7 @@ body {
     </div>
 
 
-    <!-- ESTILO 538 -->
+    <!-- 538 -->
 
     <div
       class="producto"
@@ -832,7 +906,7 @@ body {
 
       <img
         src="estilo-538.jpg"
-        alt="UNION Estilo 538">
+        alt="UNION 538">
 
       <div class="producto-info">
 
@@ -849,7 +923,7 @@ body {
     </div>
 
 
-    <!-- ESTILO 542 -->
+    <!-- 542 -->
 
     <div
       class="producto"
@@ -857,7 +931,7 @@ body {
 
       <img
         src="estilo-542.png"
-        alt="UNION Estilo 542">
+        alt="UNION 542">
 
       <div class="producto-info">
 
@@ -874,7 +948,7 @@ body {
     </div>
 
 
-    <!-- ESTILO 544 -->
+    <!-- 544 -->
 
     <div
       class="producto"
@@ -882,7 +956,7 @@ body {
 
       <img
         src="estilo-544.jpg"
-        alt="UNION Estilo 544">
+        alt="UNION 544">
 
       <div class="producto-info">
 
@@ -899,7 +973,7 @@ body {
     </div>
 
 
-    <!-- ESTILO 545 -->
+    <!-- 545 -->
 
     <div
       class="producto"
@@ -907,7 +981,7 @@ body {
 
       <img
         src="estilo-545.png"
-        alt="UNION Estilo 545">
+        alt="UNION 545">
 
       <div class="producto-info">
 
@@ -917,6 +991,31 @@ body {
 
         <strong>
           545
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 545 DAMA -->
+
+    <div
+      class="producto"
+      onclick="abrirProducto('545-dama')">
+
+      <img
+        src="estilo-545-dama.jpg"
+        alt="UNION 545 Dama">
+
+      <div class="producto-info">
+
+        <small>
+          ESTILO
+        </small>
+
+        <strong>
+          545 DAMA
         </strong>
 
       </div>
@@ -935,13 +1034,14 @@ body {
 
   </button>
 
+
 </section>
 
 </div>
 
 
 <!-- =========================
-     FICHA DEL PRODUCTO
+     FICHA
 ========================= -->
 
 <div
@@ -949,6 +1049,7 @@ body {
   id="ficha">
 
   <div class="ficha-contenido">
+
 
     <button
       class="cerrar"
@@ -980,25 +1081,25 @@ body {
       </div>
 
 
-      <h3 id="tituloProducto">
+      <h3
+        id="tituloProducto">
+
         UNION
+
       </h3>
 
 
-      <div class="video-area">
+      <a
+        id="botonColores"
+        class="boton-colores"
+        href="#"
+        target="_blank"
+        rel="noopener">
 
-        VIDEO DEL PRODUCTO
+        VER COLORES DISPONIBLES
 
-      </div>
+      </a>
 
-
-      <button
-        class="boton-compra"
-        onclick="alert('Aquí podremos colocar el enlace de compra')">
-
-        VER / COMPRAR
-
-      </button>
 
     </div>
 
@@ -1009,58 +1110,109 @@ body {
 
 <script>
 
+
 /* =========================
    PORTADA
 ========================= */
 
-function abrirCatalogo() {
+function abrirCatalogo(){
 
   document
     .getElementById("menu")
     .scrollIntoView({
-      behavior: "smooth"
+      behavior:"smooth"
     });
 
 }
 
 
 /* =========================
-   ABRIR RUNNING
+   RUNNING
 ========================= */
 
-function abrirRunning() {
+function abrirRunning(){
 
   const running =
     document.getElementById("running");
 
   running.classList.add("activa");
 
-  setTimeout(function() {
+  setTimeout(function(){
 
     running.scrollIntoView({
-      behavior: "smooth"
+      behavior:"smooth"
     });
 
-  }, 100);
+  },100);
 
 }
 
 
 /* =========================
-   EXTENSIONES REALES
+   EXTENSIONES
 ========================= */
 
 const extensiones = {
 
-  "527": "jpg",
+  "527":"jpg",
 
-  "538": "jpg",
+  "538":"jpg",
 
-  "542": "png",
+  "542":"png",
 
-  "544": "jpg",
+  "544":"jpg",
 
-  "545": "png"
+  "545":"png",
+
+  "545-dama":"jpg"
+
+};
+
+
+/* =========================
+   NOMBRES
+========================= */
+
+const nombres = {
+
+  "527":"UNION 527",
+
+  "538":"UNION 538",
+
+  "542":"UNION 542",
+
+  "544":"UNION 544",
+
+  "545":"UNION 545",
+
+  "545-dama":"545 DAMA"
+
+};
+
+
+/* =========================
+   PDFs DE DRIVE
+========================= */
+
+const pdfs = {
+
+  "527":
+  "https://drive.google.com/file/d/15GEb0hrcMbxjc2uSBHYHhfE4r5uouVdP/view?usp=drivesdk",
+
+  "538":
+  "https://drive.google.com/file/d/1BXyVzii3rZWV3Ru2Q8UXRbB69PmNiOeF/view?usp=drivesdk",
+
+  "542":
+  "https://drive.google.com/file/d/1-pAryxoHT9SNFuHKdAC0KNEC8tv6R68-/view?usp=drivesdk",
+
+  "544":
+  "https://drive.google.com/file/d/1SPsVEtDTzaAmCpi8YNgTCxZyUgPkj7Hk/view?usp=drivesdk",
+
+  "545":
+  "https://drive.google.com/file/d/1OZPk2aHYswtfNEM3CaKgIwBtW3HFD67E/view?usp=drivesdk",
+
+  "545-dama":
+  "https://drive.google.com/file/d/1kG65LTvS32tqBLeWLN4xQmjBy3Uehr6L/view?usp=drivesdk"
 
 };
 
@@ -1069,7 +1221,7 @@ const extensiones = {
    ABRIR PRODUCTO
 ========================= */
 
-function abrirProducto(estilo) {
+function abrirProducto(estilo){
 
   const imagen =
     document.getElementById(
@@ -1086,6 +1238,11 @@ function abrirProducto(estilo) {
       "tituloProducto"
     );
 
+  const boton =
+    document.getElementById(
+      "botonColores"
+    );
+
 
   imagen.src =
     "estilo-" +
@@ -1094,12 +1251,27 @@ function abrirProducto(estilo) {
     extensiones[estilo];
 
 
-  numero.textContent =
-    "ESTILO " + estilo;
+  if(estilo === "545-dama"){
+
+    numero.textContent =
+      "ESTILO 545 · DAMA";
+
+    titulo.textContent =
+      "545 DAMA";
+
+  }else{
+
+    numero.textContent =
+      "ESTILO " + estilo;
+
+    titulo.textContent =
+      nombres[estilo];
+
+  }
 
 
-  titulo.textContent =
-    "UNION " + estilo;
+  boton.href =
+    pdfs[estilo];
 
 
   document
@@ -1113,7 +1285,7 @@ function abrirProducto(estilo) {
    CERRAR PRODUCTO
 ========================= */
 
-function cerrarProducto() {
+function cerrarProducto(){
 
   document
     .getElementById("ficha")
@@ -1123,15 +1295,15 @@ function cerrarProducto() {
 
 
 /* =========================
-   VOLVER AL MENÚ
+   REGRESAR
 ========================= */
 
-function regresarMenu() {
+function regresarMenu(){
 
   document
     .getElementById("menu")
     .scrollIntoView({
-      behavior: "smooth"
+      behavior:"smooth"
     });
 
 }
@@ -1141,7 +1313,7 @@ function regresarMenu() {
    PRÓXIMAMENTE
 ========================= */
 
-function proximamente() {
+function proximamente(){
 
   alert(
     "Esta sección la construiremos próximamente ✨"
@@ -1151,16 +1323,16 @@ function proximamente() {
 
 
 /* =========================
-   CERRAR FICHA
+   CERRAR AL TOCAR AFUERA
 ========================= */
 
 document
   .getElementById("ficha")
   .addEventListener(
     "click",
-    function(event) {
+    function(event){
 
-      if (event.target === this) {
+      if(event.target === this){
 
         cerrarProducto();
 
@@ -1171,14 +1343,14 @@ document
 
 
 /* =========================
-   ESCAPE PARA CERRAR
+   ESCAPE
 ========================= */
 
 document.addEventListener(
   "keydown",
-  function(event) {
+  function(event){
 
-    if (event.key === "Escape") {
+    if(event.key === "Escape"){
 
       cerrarProducto();
 
