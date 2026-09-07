@@ -212,10 +212,10 @@ body{
 
 
 /* =========================
-   RUNNING
+   SECCIONES GENERALES
 ========================= */
 
-.seccion-running{
+.seccion{
   display:none;
 
   min-height:100vh;
@@ -231,7 +231,7 @@ body{
     #080808;
 }
 
-.seccion-running.activa{
+.seccion.activa{
   display:block;
 
   animation:aparecer .7s ease;
@@ -239,7 +239,7 @@ body{
 
 
 /* =========================
-   TÍTULO RUNNING
+   TÍTULO SECCIÓN
 ========================= */
 
 .titulo-seccion{
@@ -271,7 +271,7 @@ body{
 
 
 /* =========================
-   VIDEO RUNNING
+   VIDEO GENERAL
 ========================= */
 
 .video-general{
@@ -286,7 +286,7 @@ body{
   margin-bottom:12px;
 }
 
-.video-running{
+.video-contenedor{
   width:100%;
 
   border-radius:20px;
@@ -299,13 +299,37 @@ body{
     0 20px 50px rgba(0,0,0,.45);
 }
 
-.video-running video{
+.video-contenedor video{
   width:100%;
   display:block;
 
   aspect-ratio:16/9;
 
   object-fit:cover;
+}
+
+
+/* =========================
+   PUBLICIDAD TIEMPO
+========================= */
+
+.publicidad{
+  width:100%;
+  margin-bottom:38px;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  background:#111;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.45);
+}
+
+.publicidad img{
+  width:100%;
+  display:block;
 }
 
 
@@ -619,10 +643,6 @@ body{
   animation-delay:.3s;
 }
 
-.entrada:nth-child(4){
-  animation-delay:.4s;
-}
-
 @keyframes entrada{
 
   to{
@@ -720,7 +740,7 @@ body{
 
     <div
       class="categoria entrada"
-      onclick="abrirRunning()">
+      onclick="abrirSeccion('running')">
 
       <span>
         01 · COLECCIÓN
@@ -737,39 +757,18 @@ body{
     </div>
 
 
-    <!-- SOCCER -->
+    <!-- SOCCER & TURF -->
 
     <div
       class="categoria entrada"
-      onclick="proximamente()">
+      onclick="abrirSeccion('soccer')">
 
       <span>
         02 · COLECCIÓN
       </span>
 
       <h2>
-        SOCCER
-      </h2>
-
-      <div class="flecha">
-        →
-      </div>
-
-    </div>
-
-
-    <!-- TURF -->
-
-    <div
-      class="categoria entrada"
-      onclick="proximamente()">
-
-      <span>
-        03 · COLECCIÓN
-      </span>
-
-      <h2>
-        TURF
+        SOCCER & TURF
       </h2>
 
       <div class="flecha">
@@ -786,7 +785,7 @@ body{
       onclick="proximamente()">
 
       <span>
-        04 · COLECCIÓN
+        03 · COLECCIÓN
       </span>
 
       <h2>
@@ -819,7 +818,7 @@ body{
 ========================= -->
 
 <section
-  class="seccion-running"
+  class="seccion"
   id="running">
 
 
@@ -840,7 +839,7 @@ body{
   </div>
 
 
-  <!-- VIDEO GENERAL -->
+  <!-- VIDEO RUNNING -->
 
   <div class="video-general">
 
@@ -848,7 +847,7 @@ body{
       UNION · RUNNING
     </div>
 
-    <div class="video-running">
+    <div class="video-contenedor">
 
       <video
         controls
@@ -868,7 +867,7 @@ body{
   </div>
 
 
-  <!-- PRODUCTOS -->
+  <!-- PRODUCTOS RUNNING -->
 
   <div class="productos">
 
@@ -885,13 +884,9 @@ body{
 
       <div class="producto-info">
 
-        <small>
-          ESTILO
-        </small>
+        <small>ESTILO</small>
 
-        <strong>
-          527
-        </strong>
+        <strong>527</strong>
 
       </div>
 
@@ -910,13 +905,9 @@ body{
 
       <div class="producto-info">
 
-        <small>
-          ESTILO
-        </small>
+        <small>ESTILO</small>
 
-        <strong>
-          538
-        </strong>
+        <strong>538</strong>
 
       </div>
 
@@ -935,13 +926,9 @@ body{
 
       <div class="producto-info">
 
-        <small>
-          ESTILO
-        </small>
+        <small>ESTILO</small>
 
-        <strong>
-          542
-        </strong>
+        <strong>542</strong>
 
       </div>
 
@@ -960,13 +947,9 @@ body{
 
       <div class="producto-info">
 
-        <small>
-          ESTILO
-        </small>
+        <small>ESTILO</small>
 
-        <strong>
-          544
-        </strong>
+        <strong>544</strong>
 
       </div>
 
@@ -985,13 +968,9 @@ body{
 
       <div class="producto-info">
 
-        <small>
-          ESTILO
-        </small>
+        <small>ESTILO</small>
 
-        <strong>
-          545
-        </strong>
+        <strong>545</strong>
 
       </div>
 
@@ -1010,13 +989,451 @@ body{
 
       <div class="producto-info">
 
-        <small>
-          ESTILO
-        </small>
+        <small>ESTILO</small>
 
-        <strong>
-          545 DAMA
-        </strong>
+        <strong>545 DAMA</strong>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    class="regresar"
+    onclick="regresarMenu()">
+
+    ← VOLVER AL MENÚ
+
+  </button>
+
+
+</section>
+
+
+<!-- =========================
+     SOCCER & TURF
+========================= -->
+
+<section
+  class="seccion"
+  id="soccer">
+
+
+  <div class="titulo-seccion">
+
+    <div class="numero">
+      UNION · 02
+    </div>
+
+    <h2>
+      SOCCER<br>& TURF
+    </h2>
+
+    <p>
+      Football Collection
+    </p>
+
+  </div>
+
+
+  <!-- VIDEO SOCCER & TURF -->
+
+  <div class="video-general">
+
+    <div class="video-etiqueta">
+      UNION · SOCCER & TURF
+    </div>
+
+    <div class="video-contenedor">
+
+      <video
+        controls
+        playsinline
+        preload="metadata">
+
+        <source
+          src="video-soccer-turf.mp4"
+          type="video/mp4">
+
+        Tu navegador no puede reproducir este video.
+
+      </video>
+
+    </div>
+
+  </div>
+
+
+  <!-- PUBLICIDAD TIEMPO -->
+
+  <div class="publicidad">
+
+    <img
+      src="publicidad-tiempo.png"
+      alt="Estilo Tiempo — Nuevas combinaciones">
+
+  </div>
+
+
+  <!-- 21 MODELOS -->
+
+  <div class="productos">
+
+
+    <!-- 3115 -->
+
+    <div class="producto" onclick="abrirProducto('3115')">
+
+      <img src="estilo-3115" alt="UNION 3115">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3115</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3114 -->
+
+    <div class="producto" onclick="abrirProducto('3114')">
+
+      <img src="estilo-3114" alt="UNION 3114">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3114</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3112 -->
+
+    <div class="producto" onclick="abrirProducto('3112')">
+
+      <img src="estilo-3112" alt="UNION 3112">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3112</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3111 -->
+
+    <div class="producto" onclick="abrirProducto('3111')">
+
+      <img src="estilo-3111" alt="UNION 3111">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3111</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3110 -->
+
+    <div class="producto" onclick="abrirProducto('3110')">
+
+      <img src="estilo-3110" alt="UNION 3110">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3110</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3109 -->
+
+    <div class="producto" onclick="abrirProducto('3109')">
+
+      <img src="estilo-3109" alt="UNION 3109">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3109</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3108 -->
+
+    <div class="producto" onclick="abrirProducto('3108')">
+
+      <img src="estilo-3108" alt="UNION 3108">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3108</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3107 -->
+
+    <div class="producto" onclick="abrirProducto('3107')">
+
+      <img src="estilo-3107" alt="UNION 3107">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3107</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- GOLDEN -->
+
+    <div class="producto" onclick="abrirProducto('golden')">
+
+      <img src="estilo-golden" alt="UNION GOLDEN">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>GOLDEN</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3106 -->
+
+    <div class="producto" onclick="abrirProducto('3106')">
+
+      <img src="estilo-3106" alt="UNION 3106">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3106</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3105 -->
+
+    <div class="producto" onclick="abrirProducto('3105')">
+
+      <img src="estilo-3105" alt="UNION 3105">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3105</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3104 -->
+
+    <div class="producto" onclick="abrirProducto('3104')">
+
+      <img src="estilo-3104" alt="UNION 3104">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3104</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3102 -->
+
+    <div class="producto" onclick="abrirProducto('3102')">
+
+      <img src="estilo-3102" alt="UNION 3102">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3102</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3099 -->
+
+    <div class="producto" onclick="abrirProducto('3099')">
+
+      <img src="estilo-3099" alt="UNION 3099">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3099</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 90 -->
+
+    <div class="producto" onclick="abrirProducto('90')">
+
+      <img src="estilo-90" alt="UNION 90">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>90</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3096 -->
+
+    <div class="producto" onclick="abrirProducto('3096')">
+
+      <img src="estilo-3096" alt="UNION 3096">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3096</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3090 -->
+
+    <div class="producto" onclick="abrirProducto('3090')">
+
+      <img src="estilo-3090" alt="UNION 3090">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3090</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3070 -->
+
+    <div class="producto" onclick="abrirProducto('3070')">
+
+      <img src="estilo-3070" alt="UNION 3070">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>3070</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- TIEMPO -->
+
+    <div class="producto" onclick="abrirProducto('tiempo')">
+
+      <img src="estilo-tiempo" alt="UNION TIEMPO">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>TIEMPO</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2080 -->
+
+    <div class="producto" onclick="abrirProducto('2080')">
+
+      <img src="estilo-2080" alt="UNION 2080">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>2080</strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2070 -->
+
+    <div class="producto" onclick="abrirProducto('2070')">
+
+      <img src="estilo-2070" alt="UNION 2070">
+
+      <div class="producto-info">
+
+        <small>ESTILO</small>
+
+        <strong>2070</strong>
 
       </div>
 
@@ -1041,7 +1458,7 @@ body{
 
 
 <!-- =========================
-     FICHA
+     FICHA PRODUCTO
 ========================= -->
 
 <div
@@ -1127,19 +1544,19 @@ function abrirCatalogo(){
 
 
 /* =========================
-   RUNNING
+   ABRIR SECCIÓN
 ========================= */
 
-function abrirRunning(){
+function abrirSeccion(id){
 
-  const running =
-    document.getElementById("running");
+  const seccion =
+    document.getElementById(id);
 
-  running.classList.add("activa");
+  seccion.classList.add("activa");
 
   setTimeout(function(){
 
-    running.scrollIntoView({
+    seccion.scrollIntoView({
       behavior:"smooth"
     });
 
@@ -1155,16 +1572,33 @@ function abrirRunning(){
 const extensiones = {
 
   "527":"jpg",
-
   "538":"jpg",
-
   "542":"png",
-
   "544":"jpg",
-
   "545":"png",
+  "545-dama":"jpg",
 
-  "545-dama":"jpg"
+  "3115":"jpg",
+  "3114":"jpg",
+  "3112":"jpg",
+  "3111":"jpg",
+  "3110":"jpg",
+  "3109":"jpg",
+  "3108":"jpg",
+  "3107":"jpg",
+  "golden":"jpg",
+  "3106":"jpg",
+  "3105":"jpg",
+  "3104":"jpg",
+  "3102":"jpg",
+  "3099":"jpg",
+  "90":"jpg",
+  "3096":"jpg",
+  "3090":"jpg",
+  "3070":"jpg",
+  "tiempo":"jpg",
+  "2080":"jpg",
+  "2070":"jpg"
 
 };
 
@@ -1176,16 +1610,33 @@ const extensiones = {
 const nombres = {
 
   "527":"UNION 527",
-
   "538":"UNION 538",
-
   "542":"UNION 542",
-
   "544":"UNION 544",
-
   "545":"UNION 545",
+  "545-dama":"545 DAMA",
 
-  "545-dama":"545 DAMA"
+  "3115":"UNION 3115",
+  "3114":"UNION 3114",
+  "3112":"UNION 3112",
+  "3111":"UNION 3111",
+  "3110":"UNION 3110",
+  "3109":"UNION 3109",
+  "3108":"UNION 3108",
+  "3107":"UNION 3107",
+  "golden":"GOLDEN",
+  "3106":"UNION 3106",
+  "3105":"UNION 3105",
+  "3104":"UNION 3104",
+  "3102":"UNION 3102",
+  "3099":"UNION 3099",
+  "90":"UNION 90",
+  "3096":"UNION 3096",
+  "3090":"UNION 3090",
+  "3070":"UNION 3070",
+  "tiempo":"TIEMPO",
+  "2080":"UNION 2080",
+  "2070":"UNION 2070"
 
 };
 
@@ -1212,7 +1663,71 @@ const pdfs = {
   "https://drive.google.com/file/d/1OZPk2aHYswtfNEM3CaKgIwBtW3HFD67E/view?usp=drivesdk",
 
   "545-dama":
-  "https://drive.google.com/file/d/1kG65LTvS32tqBLeWLN4xQmjBy3Uehr6L/view?usp=drivesdk"
+  "https://drive.google.com/file/d/1kG65LTvS32tqBLeWLN4xQmjBy3Uehr6L/view?usp=drivesdk",
+
+
+  "3115":
+  "https://drive.google.com/file/d/1ZF_sSJ5hHeWkVWyRbLZMpOEvi7StqsUB/view?usp=drivesdk",
+
+  "3114":
+  "https://drive.google.com/file/d/10FMeZx81aC74dqhyJJDvvbv4EMeUywki/view?usp=drivesdk",
+
+  "3112":
+  "https://drive.google.com/file/d/1q_KPm_h7YRh4ogzk9tKZMqZn5DuyZnBv/view?usp=drivesdk",
+
+  "3111":
+  "https://drive.google.com/file/d/15qhx5U9sElCbbCh5qgC_Np-Nd5blXu32/view?usp=drivesdk",
+
+  "3110":
+  "https://drive.google.com/file/d/1mzQDJ8MhtNqupFaiLJngA48Va9y2ixch/view?usp=drivesdk",
+
+  "3109":
+  "https://drive.google.com/file/d/1rJBBaBlncmM3fVGDtZx7mjwwVXLa9nwD/view?usp=drivesdk",
+
+  "3108":
+  "https://drive.google.com/file/d/1JulVmRd3MjeNHR_qmBpjJ3mtQoJ4OtJ0/view?usp=drivesdk",
+
+  "3107":
+  "https://drive.google.com/file/d/1rmfj6ELSiizD2kM8df64Ohxi0oleUuG3/view?usp=drivesdk",
+
+  "golden":
+  "https://drive.google.com/file/d/1coTIhSMs2Px-Li4NtTGiOuyU8L4NirIP/view?usp=drivesdk",
+
+  "3106":
+  "https://drive.google.com/file/d/1p6RcPs2BGT1DW28TkzpQRrXjC1naTjKe/view?usp=drivesdk",
+
+  "3105":
+  "https://drive.google.com/file/d/1kP2cttX7KVXMQf-pRUQSOkcj54AYy-xv/view?usp=drivesdk",
+
+  "3104":
+  "https://drive.google.com/file/d/1AwvhX538IKl9LrZLuZmglu6aGUN58bEH/view?usp=drivesdk",
+
+  "3102":
+  "https://drive.google.com/file/d/1pOfjaWL5o70l5JTVus2CLPJtvghg72Q9/view?usp=drivesdk",
+
+  "3099":
+  "https://drive.google.com/file/d/1op0AkEWgEnnMxhhFcmMEKjUgCuv9V0TO/view?usp=drivesdk",
+
+  "90":
+  "https://drive.google.com/file/d/1DAmuRhKZgCKmqlVDayv_2MW_FzpzgmCA/view?usp=drivesdk",
+
+  "3096":
+  "https://drive.google.com/file/d/1cL94SolLLXpDjc4bByX2m24ifE7gN5s8/view?usp=drivesdk",
+
+  "3090":
+  "https://drive.google.com/file/d/1HN6CZZy_Un7d2DImzfYhGqxvybCvso52/view?usp=drivesdk",
+
+  "3070":
+  "https://drive.google.com/file/d/1cmen5xWHXmEzqmfFuhXcq_-HWSNSzCsr/view?usp=drivesdk",
+
+  "tiempo":
+  "https://drive.google.com/file/d/1SxPAbv47F2Ol7TFzAlbJ3sTJwm62jKcY/view?usp=drivesdk",
+
+  "2080":
+  "https://drive.google.com/file/d/15GhJnz0_YFJsnBwn3A2ANhGe2FgfOkmn/view?usp=drivesdk",
+
+  "2070":
+  "https://drive.google.com/file/d/1uUAUtdTdStvTuY8QM8qsO35T6CQVgLYS/view?usp=drivesdk"
 
 };
 
