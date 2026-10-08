@@ -37,8 +37,7 @@ body{
 
 .portada{
   width:100%;
-  height:100vh;
-  min-height:826px;
+  aspect-ratio:2 / 3;
   position:relative;
   overflow:hidden;
 }
@@ -46,8 +45,9 @@ body{
 .portada img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
+  background:#000;
 }
 
 .portada::after{
@@ -561,10 +561,6 @@ body{
 
 @media(max-width:600px){
 
-  .portada{
-    min-height:100vh;
-  }
-
   .productos{
     grid-template-columns:1fr 1fr;
   }
@@ -595,7 +591,7 @@ body{
 <section class="portada aparecer">
 
   <img
-    src="portada"
+    src="portada.jpeg"
     alt="UNION Catálogo 2026">
 
   <button
@@ -839,6 +835,42 @@ body{
     </div>
 
 
+    <!-- NUEVO 546 -->
+
+    <div class="producto" onclick="abrirProducto('546')">
+
+      <img src="estilo-546.jpeg" alt="UNION 546">
+
+      <div class="producto-info">
+        <small>ESTILO</small>
+        <strong>546</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
+      </div>
+
+    </div>
+
+
+    <!-- NUEVO 547 -->
+
+    <div class="producto" onclick="abrirProducto('547')">
+
+      <img src="estilo-547.jpeg" alt="UNION 547">
+
+      <div class="producto-info">
+        <small>ESTILO</small>
+        <strong>547</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
+      </div>
+
+    </div>
+
+
   </div>
 
 
@@ -934,21 +966,57 @@ body{
     </div>
 
 
-    <div class="producto" onclick="abrirProducto('3111')">
-      <img src="estilo-3111.png" alt="UNION 3111">
+    <!-- NUEVO 3113 -->
+
+    <div class="producto" onclick="abrirProducto('3113')">
+
+      <img src="estilo-3113.jpeg" alt="UNION 3113">
+
       <div class="producto-info">
         <small>ESTILO</small>
-        <strong>3111</strong>
+        <strong>3113</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 25 HASTA EL 29
+        </span>
       </div>
+
     </div>
 
 
-    <div class="producto" onclick="abrirProducto('3110')">
-      <img src="estilo-3110.png" alt="UNION 3110">
+    <!-- NUEVO 3116 -->
+
+    <div class="producto" onclick="abrirProducto('3116')">
+
+      <img src="estilo-3116.jpeg" alt="UNION 3116">
+
       <div class="producto-info">
         <small>ESTILO</small>
-        <strong>3110</strong>
+        <strong>3116</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
       </div>
+
+    </div>
+
+
+    <!-- NUEVO 3118 -->
+
+    <div class="producto" onclick="abrirProducto('3118')">
+
+      <img src="estilo-3118.jpeg" alt="UNION 3118">
+
+      <div class="producto-info">
+        <small>ESTILO</small>
+        <strong>3118</strong>
+
+        <span class="linea-disponible">
+          LÍNEA DISPONIBLE: 22 HASTA EL 29
+        </span>
+      </div>
+
     </div>
 
 
@@ -1397,11 +1465,17 @@ const extensiones = {
   "545":"png",
   "545-dama":"jpg",
 
+  "546":"jpeg",
+  "547":"jpeg",
+
   "3115":"png",
   "3114":"png",
   "3112":"png",
-  "3111":"png",
-  "3110":"png",
+
+  "3113":"jpeg",
+  "3116":"jpeg",
+  "3118":"jpeg",
+
   "3109":"png",
   "3108":"png",
   "3107":"png",
@@ -1439,11 +1513,17 @@ const nombres = {
   "545":"UNION 545",
   "545-dama":"545 DAMA",
 
+  "546":"UNION 546",
+  "547":"UNION 547",
+
   "3115":"UNION 3115",
   "3114":"UNION 3114",
   "3112":"UNION 3112",
-  "3111":"UNION 3111",
-  "3110":"UNION 3110",
+
+  "3113":"UNION 3113",
+  "3116":"UNION 3116",
+  "3118":"UNION 3118",
+
   "3109":"UNION 3109",
   "3108":"UNION 3108",
   "3107":"UNION 3107",
@@ -1469,7 +1549,7 @@ const nombres = {
 
 
 /* =========================
-   PDFs
+   PDFs / DRIVE
 ========================= */
 
 const pdfs = {
@@ -1492,6 +1572,12 @@ const pdfs = {
   "545-dama":
   "https://drive.google.com/file/d/1kG65LTvS32tqBLeWLN4xQmjBy3Uehr6L/view?usp=drivesdk",
 
+  "546":
+  "https://drive.google.com/file/d/1_bEDer3Ql6Somq0eDJS8q0Je31J1ePag/view?usp=drivesdk",
+
+  "547":
+  "https://drive.google.com/file/d/1JfeZcvPaxS1kh1gSMfVGpj1iYWdzIUDx/view?usp=drivesdk",
+
 
   "3115":
   "https://drive.google.com/file/d/1ZF_sSJ5hHeWkVWyRbLZMpOEvi7StqsUB/view?usp=drivesdk",
@@ -1502,11 +1588,14 @@ const pdfs = {
   "3112":
   "https://drive.google.com/file/d/1q_KPm_h7YRh4ogzk9tKZMqZn5DuyZnBv/view?usp=drivesdk",
 
-  "3111":
-  "https://drive.google.com/file/d/15qhx5U9sElCbbCh5qgC_Np-Nd5blXu32/view?usp=drivesdk",
+  "3113":
+  "https://drive.google.com/file/d/1A75iVIblvQd5bJaZ01UUrWugY0tFsMp3/view?usp=drivesdk",
 
-  "3110":
-  "https://drive.google.com/file/d/1mzQDJ8MhtNqupFaiLJngA48Va9y2ixch/view?usp=drivesdk",
+  "3116":
+  "https://drive.google.com/file/d/1j_IDHV35fbnsPdqYkhHcXdmuuB4D8zcl/view?usp=drivesdk",
+
+  "3118":
+  "https://drive.google.com/file/d/184rtuvD7t2oe9PYDr67O6gxsTQRkKU9U/view?usp=drivesdk",
 
   "3109":
   "https://drive.google.com/file/d/1rJBBaBlncmM3fVGDtZx7mjwwVXLa9nwD/view?usp=drivesdk",
